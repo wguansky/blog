@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Unit test is very import to improve the code robust. Each time, when we do some changes or code refactor, we need to verify our code can work well. And those errors can be exposed in develop process not in the test process.
-Tools For pythhon, we usually use two type of tools to run python test nose2 and pytest, and they both based on unittest. In my mind, if you want to test or debug only one unit case, I recommand to use pytest.'>
-<title>Python unit test</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Everything is object in python, so class is aslo object named Metadata Calss.
+How to use define and use metaclass The basic metadata class is type, you can define an object from this type.
+PythonClass = type(&amp;#39;class name&amp;#39;, (supper class,), attributes) The above will retruen a calss. If you want to define a new class, you can inhiert from type as follow:
+class Single(type): pass Now Single is a new metadata class, then you can use it to define a new class.'>
+<title>Metadata Class</title>
 
-<link rel='canonical' href='https://wguansky.github.io/blog/post/python_test/'>
+<link rel='canonical' href='https://wguansky.github.io/blog/post/metadata_class/'>
 
-<link rel="stylesheet" href="/blog/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Python unit test'>
-<meta property='og:description' content='Unit test is very import to improve the code robust. Each time, when we do some changes or code refactor, we need to verify our code can work well. And those errors can be exposed in develop process not in the test process.
-Tools For pythhon, we usually use two type of tools to run python test nose2 and pytest, and they both based on unittest. In my mind, if you want to test or debug only one unit case, I recommand to use pytest.'>
-<meta property='og:url' content='https://wguansky.github.io/blog/post/python_test/'>
+<link rel="stylesheet" href="/blog/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Metadata Class'>
+<meta property='og:description' content='Everything is object in python, so class is aslo object named Metadata Calss.
+How to use define and use metaclass The basic metadata class is type, you can define an object from this type.
+PythonClass = type(&amp;#39;class name&amp;#39;, (supper class,), attributes) The above will retruen a calss. If you want to define a new class, you can inhiert from type as follow:
+class Single(type): pass Now Single is a new metadata class, then you can use it to define a new class.'>
+<meta property='og:url' content='https://wguansky.github.io/blog/post/metadata_class/'>
 <meta property='og:site_name' content='Wei Guan'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Python' /><meta property='article:tag' content='Test' /><meta property='article:published_time' content='2022-12-29T13:35:43&#43;08:00'/><meta property='article:modified_time' content='2022-12-29T13:35:43&#43;08:00'/>
-<meta name="twitter:title" content="Python unit test">
-<meta name="twitter:description" content="Unit test is very import to improve the code robust. Each time, when we do some changes or code refactor, we need to verify our code can work well. And those errors can be exposed in develop process not in the test process.
-Tools For pythhon, we usually use two type of tools to run python test nose2 and pytest, and they both based on unittest. In my mind, if you want to test or debug only one unit case, I recommand to use pytest.">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-12-30T04:37:23&#43;08:00'/><meta property='article:modified_time' content='2022-12-30T04:37:23&#43;08:00'/>
+<meta name="twitter:title" content="Metadata Class">
+<meta name="twitter:description" content="Everything is object in python, so class is aslo object named Metadata Calss.
+How to use define and use metaclass The basic metadata class is type, you can define an object from this type.
+PythonClass = type(&amp;#39;class name&amp;#39;, (supper class,), attributes) The above will retruen a calss. If you want to define a new class, you can inhiert from type as follow:
+class Single(type): pass Now Single is a new metadata class, then you can use it to define a new class.">
     </head>
     <body class="
     article-page
@@ -206,8 +212,8 @@ Tools For pythhon, we usually use two type of tools to run python test nose2 and
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ul>
-    <li><a href="#tools">Tools</a></li>
-    <li><a href="#mock">Mock</a></li>
+    <li><a href="#how-to-use-define-and-use-metaclass">How to use define and use metaclass</a></li>
+    <li><a href="#what-should-we-implement-a-metacalss">What should we implement a metacalss</a></li>
   </ul>
 </nav>
         </div>
@@ -235,7 +241,7 @@ Tools For pythhon, we usually use two type of tools to run python test nose2 and
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/blog/post/python_test/">Python unit test</a>
+            <a href="/blog/post/metadata_class/">Metadata Class</a>
         </h2>
     
         
@@ -257,7 +263,7 @@ Tools For pythhon, we usually use two type of tools to run python test nose2 and
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Dec 29, 2022</time>
+                <time class="article-time--published">Dec 30, 2022</time>
             </div>
         
 
@@ -272,7 +278,7 @@ Tools For pythhon, we usually use two type of tools to run python test nose2 and
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -287,30 +293,34 @@ Tools For pythhon, we usually use two type of tools to run python test nose2 and
     <section class="article-content">
     
     
-    <p>Unit test is very import to improve the code robust. Each time, when we do some changes or code refactor,
-we need to verify our code can work well. And those errors can be exposed in develop process not in the test
-process.</p>
-<h2 id="tools">Tools</h2>
-<p>For pythhon, we usually use two type of tools to run python test <a class="link" href="https://docs.nose2.io/en/latest/"  target="_blank" rel="noopener"
-    >nose2</a> and
-<a class="link" href="https://docs.pytest.org/en/7.2.x/"  target="_blank" rel="noopener"
-    >pytest</a>, and they both based on <strong>unittest</strong>. In my mind, if you want to test
-or debug only one unit case, I recommand to use pytest.</p>
-<h2 id="mock">Mock</h2>
-<p>Mock is very useful method to write unit test, and there is a very important and confuse about mock.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#a6e22e">@patch.object</span>(Version, <span style="color:#e6db74">&#39;validate_version&#39;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@patch.object</span>(Version, <span style="color:#e6db74">&#39;get_version&#39;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@patch</span>(<span style="color:#e6db74">&#39;pre_validation.linux.verify_linux_version.get_version_from_install_xml&#39;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_verify_mstr_linux_version</span>(self, m_install_xml, m_get_version, m_validate_version):
-</span></span><span style="display:flex;"><span>        m_install_xml<span style="color:#f92672">.</span>return_value <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#34;0.107.5044&#34;</span>, <span style="color:#e6db74">&#34;false&#34;</span>)
-</span></span><span style="display:flex;"><span>        m_get_version<span style="color:#f92672">.</span>return_value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;version_short&#34;</span>, <span style="color:#e6db74">&#34;version_build&#34;</span>
-</span></span><span style="display:flex;"><span>        m_validate_version<span style="color:#f92672">.</span>return_value <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
-</span></span><span style="display:flex;"><span>        return_result <span style="color:#f92672">=</span> verify_linux_version()
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>assertTrue(return_result)
-</span></span></code></pre></div><ol>
-<li>Here you can see the order in from right to left not from left to right.</li>
-<li>For install_xml, you can see it use the absoulte path and this function is call in that file, not the function define in that file.</li>
-</ol>
+    <p>Everything is object in python, so class is aslo object named <a class="link" href="https://www.datacamp.com/tutorial/python-metaclasses"  target="_blank" rel="noopener"
+    >Metadata Calss</a>.</p>
+<h2 id="how-to-use-define-and-use-metaclass">How to use define and use metaclass</h2>
+<p>The basic metadata class is <strong>type</strong>, you can define an object from this type.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>PythonClass <span style="color:#f92672">=</span> type(<span style="color:#e6db74">&#39;class name&#39;</span>, (supper class,), attributes)
+</span></span></code></pre></div><p>The above will retruen a calss. If you want to define a new class, you can inhiert from type as follow:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Single</span>(type):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span></code></pre></div><p>Now <strong>Single</strong> is a new metadata class, then you can use it to define a new class.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Logger</span>(metaclass<span style="color:#f92672">=</span>Single):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span></code></pre></div><p>Then Logger will try to use Single to help create the class.</p>
+<h2 id="what-should-we-implement-a-metacalss">What should we implement a metacalss</h2>
+<p>In order to create an object or class, there are three special methods <strong><strong>new</strong></strong>, <strong><strong>init</strong></strong>, and <strong><strong>call</strong></strong>. When we initial
+an object, it will call <strong><strong>new</strong></strong> first to malloc the memory and then use <strong><strong>init</strong></strong> to set some properities. But what&rsquo;s method
+<strong><strong>call</strong></strong>, it just a special method, when you call **ClassName(*args, <strong>kwargs)</strong>, then it will call method <strong><strong>call</strong></strong>
+automcatically. So we can change the inital process when we create a class object.</p>
+<p>Here is an example, how to use meta calss define <strong>Single</strong> class.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Single</span>(type):
+</span></span><span style="display:flex;"><span>    _instances <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __call__(cls, <span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> cls <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> cls<span style="color:#f92672">.</span>_instances:
+</span></span><span style="display:flex;"><span>            cls<span style="color:#f92672">.</span>_instances[cls] <span style="color:#f92672">=</span> super(SingletonMeta,cls)<span style="color:#f92672">.</span>__call__(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> cls<span style="color:#f92672">.</span>_instances[cls]
+</span></span></code></pre></div><p>Define object</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Logger</span>(metaclass<span style="color:#f92672">=</span>Single):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span></code></pre></div><p>When you call Logger() to create an object, this it will call Single&rsquo;s <strong>new</strong>, and <strong>init</strong>, then it will return an object.</p>
 
 </section>
 
@@ -320,8 +330,6 @@ or debug only one unit case, I recommand to use pytest.</p>
     <section class="article-tags">
         
             <a href="/blog/tags/python/">Python</a>
-        
-            <a href="/blog/tags/test/">Test</a>
         
     </section>
 
@@ -343,12 +351,12 @@ or debug only one unit case, I recommand to use pytest.</p>
             
                 
 <article class="">
-    <a href="/blog/post/metadata_class/">
+    <a href="/blog/post/python_test/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Metadata Class</h2>
+            <h2 class="article-title">Python unit test</h2>
         </div>
     </a>
 </article>

@@ -6,7 +6,43 @@
         <description>Recent content in Python on Wei Guan</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Thu, 29 Dec 2022 13:35:43 +0800</lastBuildDate><atom:link href="https://wguansky.github.io/blog/tags/python/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 30 Dec 2022 04:37:23 +0800</lastBuildDate><atom:link href="https://wguansky.github.io/blog/tags/python/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Metadata Class</title>
+        <link>https://wguansky.github.io/blog/post/metadata_class/</link>
+        <pubDate>Fri, 30 Dec 2022 04:37:23 +0800</pubDate>
+        
+        <guid>https://wguansky.github.io/blog/post/metadata_class/</guid>
+        <description>&lt;p&gt;Everything is object in python, so class is aslo object named &lt;a class=&#34;link&#34; href=&#34;https://www.datacamp.com/tutorial/python-metaclasses&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Metadata Calss&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;how-to-use-define-and-use-metaclass&#34;&gt;How to use define and use metaclass&lt;/h2&gt;
+&lt;p&gt;The basic metadata class is &lt;strong&gt;type&lt;/strong&gt;, you can define an object from this type.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;PythonClass &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; type(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;class name&amp;#39;&lt;/span&gt;, (supper class,), attributes)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The above will retruen a calss. If you want to define a new class, you can inhiert from type as follow:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Single&lt;/span&gt;(type):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;pass&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now &lt;strong&gt;Single&lt;/strong&gt; is a new metadata class, then you can use it to define a new class.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Logger&lt;/span&gt;(metaclass&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;Single):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;pass&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then Logger will try to use Single to help create the class.&lt;/p&gt;
+&lt;h2 id=&#34;what-should-we-implement-a-metacalss&#34;&gt;What should we implement a metacalss&lt;/h2&gt;
+&lt;p&gt;In order to create an object or class, there are three special methods &lt;strong&gt;&lt;strong&gt;new&lt;/strong&gt;&lt;/strong&gt;, &lt;strong&gt;&lt;strong&gt;init&lt;/strong&gt;&lt;/strong&gt;, and &lt;strong&gt;&lt;strong&gt;call&lt;/strong&gt;&lt;/strong&gt;. When we initial
+an object, it will call &lt;strong&gt;&lt;strong&gt;new&lt;/strong&gt;&lt;/strong&gt; first to malloc the memory and then use &lt;strong&gt;&lt;strong&gt;init&lt;/strong&gt;&lt;/strong&gt; to set some properities. But what&amp;rsquo;s method
+&lt;strong&gt;&lt;strong&gt;call&lt;/strong&gt;&lt;/strong&gt;, it just a special method, when you call **ClassName(*args, &lt;strong&gt;kwargs)&lt;/strong&gt;, then it will call method &lt;strong&gt;&lt;strong&gt;call&lt;/strong&gt;&lt;/strong&gt;
+automcatically. So we can change the inital process when we create a class object.&lt;/p&gt;
+&lt;p&gt;Here is an example, how to use meta calss define &lt;strong&gt;Single&lt;/strong&gt; class.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Single&lt;/span&gt;(type):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    _instances &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; __call__(cls, &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt;kwargs):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; cls &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; cls&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;_instances:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            cls&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;_instances[cls] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; super(SingletonMeta,cls)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;__call__(&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt;kwargs)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; cls&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;_instances[cls]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Define object&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Logger&lt;/span&gt;(metaclass&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;Single):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;pass&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;When you call Logger() to create an object, this it will call Single&amp;rsquo;s &lt;strong&gt;new&lt;/strong&gt;, and &lt;strong&gt;init&lt;/strong&gt;, then it will return an object.&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Python unit test</title>
         <link>https://wguansky.github.io/blog/post/python_test/</link>
         <pubDate>Thu, 29 Dec 2022 13:35:43 +0800</pubDate>
