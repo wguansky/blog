@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Wei Guan</title>
+        <link>https://wguansky.github.io/hugo/</link>
+        <description>Recent content on Wei Guan</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <lastBuildDate>Thu, 29 Dec 2022 13:35:43 +0800</lastBuildDate><atom:link href="https://wguansky.github.io/hugo/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Python unit test</title>
+        <link>https://wguansky.github.io/hugo/post/python_test/</link>
+        <pubDate>Thu, 29 Dec 2022 13:35:43 +0800</pubDate>
+        
+        <guid>https://wguansky.github.io/hugo/post/python_test/</guid>
+        <description>&lt;p&gt;Unit test is very import to improve the code robust. Each time, when we do some changes or code refactor,
+we need to verify our code can work well. And those errors can be exposed in develop process not in the test
+process.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Gotask</title>
+        <link>https://wguansky.github.io/hugo/post/gotask/</link>
+        <pubDate>Wed, 28 Dec 2022 23:32:38 +0800</pubDate>
+        
+        <guid>https://wguansky.github.io/hugo/post/gotask/</guid>
+        <description>&lt;p&gt;In our daily work, we may want to do some tasks, such as build or compile. There is a very useful tool &lt;a class=&#34;link&#34; href=&#34;https://taskfile.dev/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;task&lt;/a&gt; which can help us
+to define our work in a yaml file, then it can help us to run those commands. For remote, you can refer &lt;strong&gt;Ansible&lt;/strong&gt;, which is a very useful tool for
+Linux automation.&lt;/p&gt;
+&lt;p&gt;Here is an example for build &lt;a class=&#34;link&#34; href=&#34;https://github.microstrategy.com/wguan/mstrbak&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;mstrbak&lt;/a&gt;, in that repo, we define an internal task file as follow:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;version&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;3&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;tasks&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;clean&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;internal&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;cmds&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;rm -rf {{.TOOL}} build.txt lib {{.TOOL}}.exe {{.TOOL}}.zip&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;build-linux&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;internal&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;deps&lt;/span&gt;: [&lt;span style=&#34;color:#ae81ff&#34;&gt;jar]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;cmds&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;GOOS=linux GOARCH=amd64 go build -o {{.TOOL}} main.go&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;zip -r {{.TOOL}}.zip lib {{.CONFIG}}.yaml {{.TOOL}}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;task&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;post-clean&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;build-windows&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;internal&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;deps&lt;/span&gt;: [&lt;span style=&#34;color:#ae81ff&#34;&gt;jar]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;cmds&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;GOOS=linux GOARCH=amd64 go build -o {{.TOOL}}.exe main.go&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;zip -r {{.TOOL}}.zip lib {{.CONFIG}}.yaml {{.TOOL}}.exe&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;task&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;post-clean&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;test&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;cmds&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;go test -v -gcflags=all=-l -count=1 */*.go&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;jar&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;deps&lt;/span&gt;: [&lt;span style=&#34;color:#ae81ff&#34;&gt;pom]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;cmds&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;mvn clean dependency:copy-dependencies dependency:tree -DoutputFile=build.txt&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;mv lib/DBMigrator*.jar lib/DBMigrator.jar&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;pom&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;deps&lt;/span&gt;: [&lt;span style=&#34;color:#ae81ff&#34;&gt;clean]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;cmds&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;cp ../dbmigrator/pom.xml .&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;status&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;test -f pom.xml&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;post-clean&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;deps&lt;/span&gt;: [&lt;span style=&#34;color:#ae81ff&#34;&gt;clean-pom]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;cmds&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;rm -rf {{.TOOL}} build.txt lib {{.TOOL}}.exe&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;clean-pom&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;interal&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;cmds&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - |&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        if test {{.CLEAN_POM}} = true; then
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;           rm -rf pom.xml
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        fi&lt;/span&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then we define a task file refer the internal yaml file, which can work very well.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;version&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;3&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;includes&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;dbmigrator&lt;/span&gt;: 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;taskfile&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;./Taskfile-Internal.yaml&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;dir&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;./dbmigrator&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;vars&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;TOOL&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;DBMigrator&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;CONFIG&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;config&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;CLEAN_POM&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;backup&lt;/span&gt;: 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;taskfile&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;./Taskfile-Internal.yaml&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;dir&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;./backup&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;vars&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;TOOL&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;mstrbak&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;CONFIG&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;config&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;CLEAN_POM&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;restore&lt;/span&gt;: 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;taskfile&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;./Taskfile-Internal.yaml&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;dir&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;./restore&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;vars&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;TOOL&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;restore&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;CONFIG&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;restore&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;CLEAN_POM&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;tasks&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;build-linux&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;deps&lt;/span&gt;: [&lt;span style=&#34;color:#ae81ff&#34;&gt;dbmigrator:build-linux, backup:build-linux, restore:build-linux]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;build-windows&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;deps&lt;/span&gt;: [&lt;span style=&#34;color:#ae81ff&#34;&gt;dbmigrator:build-windows, backup:build-windows, restore:build-windows]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;test&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;deps&lt;/span&gt;: [&lt;span style=&#34;color:#ae81ff&#34;&gt;dbmigrator:test, backup:test, restore:test]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;cmds&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - |&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        for t in &amp;#34;service&amp;#34; &amp;#34;logger&amp;#34; &amp;#34;utilities&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        do 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          go test -v -gcflags=all=-l -count=1 $t/*.go
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        done&lt;/span&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;clean&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;deps&lt;/span&gt;: [&lt;span style=&#34;color:#ae81ff&#34;&gt;dbmigrator:clean, backup:clean, restore:clean]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can also use &lt;a class=&#34;link&#34; href=&#34;https://www.ruanyifeng.com/blog/2015/02/make.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;make&lt;/a&gt; to do build and compile work. Current
+I always use shell or python to do build work, but task or make may more useful, in the future, I can try to convert
+them with &lt;strong&gt;task&lt;/strong&gt; or &lt;strong&gt;make&lt;/strong&gt;.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Go Test</title>
+        <link>https://wguansky.github.io/hugo/post/go_test/</link>
+        <pubDate>Wed, 28 Dec 2022 22:26:58 +0800</pubDate>
+        
+        <guid>https://wguansky.github.io/hugo/post/go_test/</guid>
+        <description>&lt;p&gt;This article is about go unit test, in this article I will show some key and basic use for go.&lt;/p&gt;
+&lt;h2 id=&#34;basic&#34;&gt;Basic&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;The test file must named as XXXX_test.go2.&lt;/li&gt;
+&lt;li&gt;The test function must named with TestXXXX, then it can be call when you try to run it.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;test-type&#34;&gt;Test Type&lt;/h2&gt;
+&lt;p&gt;There are two type of unit test.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Basic unit test, it will be like format TestXX(t *testing.T){}&lt;/li&gt;
+&lt;li&gt;Benchmark test, it will be lke the format TestXXX(t *testing.B){}&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;run-unit-test&#34;&gt;Run unit test&lt;/h2&gt;
+&lt;p&gt;go test -v -gcflags=all=-l -count=1 &lt;em&gt;/&lt;/em&gt;.go&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;-v will show all the code coverage&lt;/li&gt;
+&lt;li&gt;-gcflags=all=-l which won&amp;rsquo;t  optimizte the code, if not add this flag, some cases may fail&lt;/li&gt;
+&lt;li&gt;-count=1 which means do nont enable cache, if enable this, it can improve the performance&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;run-unit-test-in-a-container&#34;&gt;Run unit test in a container&lt;/h2&gt;
+&lt;p&gt;For go unit test, it may fail when you try to run unit test on a machine such as my mac, it may fail and
+show error permission denied, so we can mount our code into a go docker and then run our unit test code
+in docker, this is a very useful method to run unit test. Here is the command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; docker run -it -v /Users/wguan/work/code/study:/go --privileged docker.io/golang  bash
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;unit-test&#34;&gt;Unit test&lt;/h2&gt;
+&lt;p&gt;In order to write a good unit test, there are many things useful libraries which can help us.&lt;/p&gt;
+&lt;h3 id=&#34;testifyhttpspkggodevgithubcomstretchrtestifyv181&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://pkg.go.dev/github.com/stretchr/testify@v1.8.1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Testify&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;For this package, the most use of this package is &lt;em&gt;&lt;strong&gt;assert&lt;/strong&gt;&lt;/em&gt;, we can use this package to assert many conditions.&lt;/p&gt;
+&lt;h3 id=&#34;gomockhttpsgithubcomgolangmock&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/golang/mock&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Gomock&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;This package can only mock &lt;strong&gt;interface&lt;/strong&gt;, and if you want to mock a function or method, it can not work very well.
+And for this package it also requires to generate mock code, it can&amp;rsquo;t mock directly.&lt;/p&gt;
+&lt;h3 id=&#34;gomonkeyhttpsgithubcomagiledragongomonkey&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/agiledragon/gomonkey&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;gomonkey&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Gomonkey is the most useful package for go test, it can mock all of the type function, methods, interface and variable. But
+some platforms may not support, so you have to run those unit tests in a docker.&lt;/p&gt;
+&lt;h3 id=&#34;gostubhttpspkggodevgithubcomprashantvgostub&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://pkg.go.dev/github.com/prashantv/gostub&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;gostub&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Gostub is used to mock variable.&lt;/p&gt;
+&lt;h3 id=&#34;conveyhttpspkggodevgithubcomsmartystreetsgoconveyconvey&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://pkg.go.dev/github.com/smartystreets/goconvey/convey&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;convey&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;convey is very useful and friendly unit test package, it can help us to print and shows case clearly.&lt;/p&gt;
+&lt;h3 id=&#34;test-console&#34;&gt;Test console&lt;/h3&gt;
+&lt;p&gt;There are some cases we print our result to the console, so we need to catch the output and compare the result, here is the
+example code.&lt;/p&gt;
+&lt;p&gt;function code:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;test&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;MyPrint&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Print&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello World!&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Test code:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;test&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;io/ioutil&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;os&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;testing&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;github.com/stretchr/testify/assert&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;TestMyPrint&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;t&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;testing&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;T&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;rescueStdout&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;os&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Stdout&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;r&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;w&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;_&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;os&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Pipe&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;os&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Stdout&lt;/span&gt; = &lt;span style=&#34;color:#a6e22e&#34;&gt;w&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;MyPrint&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;w&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Close&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;_&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ioutil&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ReadAll&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;r&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;os&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Stdout&lt;/span&gt; = &lt;span style=&#34;color:#a6e22e&#34;&gt;rescueStdout&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;assert&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Equal&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;t&lt;/span&gt;, string(&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;), &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello World!&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+        </item>
+        <item>
+        <title>DBdigram</title>
+        <link>https://wguansky.github.io/hugo/post/dbdigram/</link>
+        <pubDate>Wed, 28 Dec 2022 19:03:42 +0800</pubDate>
+        
+        <guid>https://wguansky.github.io/hugo/post/dbdigram/</guid>
+        <description>&lt;p&gt;This is a very useful tool, you can use it to help generate MySQL and Postgresql database schema just through this tool,
+for more information you can refer &lt;a class=&#34;link&#34; href=&#34;https://dbdiagram.io/home&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DBDigram&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>DBmigration</title>
+        <link>https://wguansky.github.io/hugo/post/dbmigration/</link>
+        <pubDate>Wed, 28 Dec 2022 18:38:02 +0800</pubDate>
+        
+        <guid>https://wguansky.github.io/hugo/post/dbmigration/</guid>
+        <description>&lt;h1 id=&#34;database-schema-migration&#34;&gt;Database Schema Migration&lt;/h1&gt;
+&lt;p&gt;In our daliy work, we will control the database version, but how to upgrade database schema
+or download database schma is very hard for our daliy work, there is a tool name &lt;a class=&#34;link&#34; href=&#34;https://github.com/golang-migrate/migrate#cli-usage&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;dbmigration&lt;/a&gt;.
+In this tool, it provide cli and library for go. Now we can use it in PA and Provision Api to migrate database.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>How to set proxy for terminal</title>
+        <link>https://wguansky.github.io/hugo/post/terminal_proxy/</link>
+        <pubDate>Thu, 08 Dec 2022 03:26:03 +0800</pubDate>
+        
+        <guid>https://wguansky.github.io/hugo/post/terminal_proxy/</guid>
+        <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Sometimes we can&amp;rsquo;t connect forigen website without proxy, we can set chrome with omega proxy, but for local we can&amp;rsquo;t use it.
+This document will introduce how to set proxy in terminate.&lt;/p&gt;
+&lt;h2 id=&#34;set-proxy-in-terminal&#34;&gt;Set proxy in terminal&lt;/h2&gt;
+&lt;p&gt;Add the following command in .bashrc or .zshrc file&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alias hp&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https_proxy=\&amp;#34;http://10.27.7.110:8080\&amp;#34; http_proxy=\&amp;#34;http://10.27.7.110:8080\&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;When you want to run a command need proxy, you should run the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hp shell_command
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;test&#34;&gt;Test&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hp curl cip.cc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+        </item>
+        <item>
+        <title>Introduce</title>
+        <link>https://wguansky.github.io/hugo/about/</link>
+        <pubDate>Tue, 06 Dec 2022 14:44:56 +0800</pubDate>
+        
+        <guid>https://wguansky.github.io/hugo/about/</guid>
+        <description>&lt;p&gt;This website is just writen by wguan, and it will introduce some techs, include&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Java&lt;/li&gt;
+&lt;li&gt;Go&lt;/li&gt;
+&lt;li&gt;C&lt;/li&gt;
+&lt;li&gt;C++&lt;/li&gt;
+&lt;li&gt;Python&lt;/li&gt;
+&lt;li&gt;AWS&lt;/li&gt;
+&lt;li&gt;Google&lt;/li&gt;
+&lt;li&gt;Azure&lt;/li&gt;
+&lt;li&gt;Docker&lt;/li&gt;
+&lt;li&gt;K8S&lt;/li&gt;
+&lt;li&gt;Shell&lt;/li&gt;
+&lt;li&gt;SQL&lt;/li&gt;
+&lt;li&gt;Kafka&lt;/li&gt;
+&lt;li&gt;Redis
+If you have questions, please let me know, you can contact
+&lt;!-- raw HTML omitted --&gt;&lt;a class=&#34;link&#34; href=&#34;mailto:xiaoguanguanSky@gmail.com&#34; &gt;xiaoguanguanSky@gmail.com&lt;/a&gt;&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>Archives</title>
+        <link>https://wguansky.github.io/hugo/page/archives/</link>
+        <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://wguansky.github.io/hugo/page/archives/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Links</title>
+        <link>https://wguansky.github.io/hugo/page/links/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://wguansky.github.io/hugo/page/links/</guid>
+        <description>&lt;p&gt;To use this feature, add &lt;code&gt;links&lt;/code&gt; section to frontmatter.&lt;/p&gt;
+&lt;p&gt;This page&amp;rsquo;s frontmatter:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;links&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - &lt;span style=&#34;color:#f92672&#34;&gt;title&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;GitHub&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;description&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;GitHub is the world&amp;#39;s largest software development platform.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;website&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;https://github.com&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;image&lt;/code&gt; field accepts both local and external images.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Search</title>
+        <link>https://wguansky.github.io/hugo/page/search/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://wguansky.github.io/hugo/page/search/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>

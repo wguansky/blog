@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Categories on Wei Guan</title>
+        <link>https://wguansky.github.io/hugo/categories/</link>
+        <description>Recent content in Categories on Wei Guan</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <lastBuildDate>Thu, 29 Dec 2022 13:35:43 +0800</lastBuildDate><atom:link href="https://wguansky.github.io/hugo/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Python</title>
+        <link>https://wguansky.github.io/hugo/categories/python/</link>
+        <pubDate>Thu, 29 Dec 2022 13:35:43 +0800</pubDate>
+        
+        <guid>https://wguansky.github.io/hugo/categories/python/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Build</title>
+        <link>https://wguansky.github.io/hugo/categories/build/</link>
+        <pubDate>Wed, 28 Dec 2022 23:32:38 +0800</pubDate>
+        
+        <guid>https://wguansky.github.io/hugo/categories/build/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Linux</title>
+        <link>https://wguansky.github.io/hugo/categories/linux/</link>
+        <pubDate>Wed, 28 Dec 2022 23:32:38 +0800</pubDate>
+        
+        <guid>https://wguansky.github.io/hugo/categories/linux/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Shell</title>
+        <link>https://wguansky.github.io/hugo/categories/shell/</link>
+        <pubDate>Wed, 28 Dec 2022 23:32:38 +0800</pubDate>
+        
+        <guid>https://wguansky.github.io/hugo/categories/shell/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Go</title>
+        <link>https://wguansky.github.io/hugo/categories/go/</link>
+        <pubDate>Wed, 28 Dec 2022 22:26:58 +0800</pubDate>
+        
+        <guid>https://wguansky.github.io/hugo/categories/go/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Database</title>
+        <link>https://wguansky.github.io/hugo/categories/database/</link>
+        <pubDate>Wed, 28 Dec 2022 19:03:42 +0800</pubDate>
+        
+        <guid>https://wguansky.github.io/hugo/categories/database/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>
