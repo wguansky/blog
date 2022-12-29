@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Go on Wei Guan</title>
-        <link>https://wguansky.github.io/hugo/categories/go/</link>
+        <link>https://wguansky.github.io/blog/categories/go/</link>
         <description>Recent content in Go on Wei Guan</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Wed, 28 Dec 2022 22:26:58 +0800</lastBuildDate><atom:link href="https://wguansky.github.io/hugo/categories/go/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 28 Dec 2022 22:26:58 +0800</lastBuildDate><atom:link href="https://wguansky.github.io/blog/categories/go/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Go Test</title>
-        <link>https://wguansky.github.io/hugo/post/go_test/</link>
+        <link>https://wguansky.github.io/blog/post/go_test/</link>
         <pubDate>Wed, 28 Dec 2022 22:26:58 +0800</pubDate>
         
-        <guid>https://wguansky.github.io/hugo/post/go_test/</guid>
+        <guid>https://wguansky.github.io/blog/post/go_test/</guid>
         <description>&lt;p&gt;This article is about go unit test, in this article I will show some key and basic use for go.&lt;/p&gt;
 &lt;h2 id=&#34;basic&#34;&gt;Basic&lt;/h2&gt;
 &lt;ol&gt;

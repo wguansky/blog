@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Python on Wei Guan</title>
-        <link>https://wguansky.github.io/hugo/categories/python/</link>
+        <link>https://wguansky.github.io/blog/categories/python/</link>
         <description>Recent content in Python on Wei Guan</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Thu, 29 Dec 2022 13:35:43 +0800</lastBuildDate><atom:link href="https://wguansky.github.io/hugo/categories/python/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 29 Dec 2022 13:35:43 +0800</lastBuildDate><atom:link href="https://wguansky.github.io/blog/categories/python/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Python unit test</title>
-        <link>https://wguansky.github.io/hugo/post/python_test/</link>
+        <link>https://wguansky.github.io/blog/post/python_test/</link>
         <pubDate>Thu, 29 Dec 2022 13:35:43 +0800</pubDate>
         
-        <guid>https://wguansky.github.io/hugo/post/python_test/</guid>
+        <guid>https://wguansky.github.io/blog/post/python_test/</guid>
         <description>&lt;p&gt;Unit test is very import to improve the code robust. Each time, when we do some changes or code refactor,
 we need to verify our code can work well. And those errors can be exposed in develop process not in the test
 process.&lt;/p&gt;
