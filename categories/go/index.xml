@@ -87,7 +87,10 @@ example code.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;os&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Stdout&lt;/span&gt; = &lt;span style=&#34;color:#a6e22e&#34;&gt;rescueStdout&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;assert&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Equal&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;t&lt;/span&gt;, string(&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;), &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello World!&amp;#34;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;fuzzy-testhttpsmediumcompliutaufuzz-testing-in-go-d22eb85e461b&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://medium.com/@pliutau/fuzz-testing-in-go-d22eb85e461b&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Fuzzy Test&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Fuzzy test just define some example cases, then it will generate other cases.&lt;/p&gt;
+</description>
         </item>
         
     </channel>

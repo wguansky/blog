@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Unit test is very import to improve the code robust. Each time, when we do some changes or code refactor, we need to verify our code can work well. And those errors can be exposed in develop process not in the test process.'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Unit test is very import to improve the code robust. Each time, when we do some changes or code refactor, we need to verify our code can work well. And those errors can be exposed in develop process not in the test process.
+Tools For pythhon, we usually use two type of tools to run python test nose2 and pytest, and they both based on unittest. In my mind, if you want to test or debug only one unit case, I recommand to use pytest.'>
 <title>Python unit test</title>
 
 <link rel='canonical' href='https://wguansky.github.io/blog/post/python_test/'>
 
 <link rel="stylesheet" href="/blog/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Python unit test'>
-<meta property='og:description' content='Unit test is very import to improve the code robust. Each time, when we do some changes or code refactor, we need to verify our code can work well. And those errors can be exposed in develop process not in the test process.'>
+<meta property='og:description' content='Unit test is very import to improve the code robust. Each time, when we do some changes or code refactor, we need to verify our code can work well. And those errors can be exposed in develop process not in the test process.
+Tools For pythhon, we usually use two type of tools to run python test nose2 and pytest, and they both based on unittest. In my mind, if you want to test or debug only one unit case, I recommand to use pytest.'>
 <meta property='og:url' content='https://wguansky.github.io/blog/post/python_test/'>
 <meta property='og:site_name' content='Wei Guan'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Python' /><meta property='article:tag' content='Test' /><meta property='article:published_time' content='2022-12-29T13:35:43&#43;08:00'/><meta property='article:modified_time' content='2022-12-29T13:35:43&#43;08:00'/>
 <meta name="twitter:title" content="Python unit test">
-<meta name="twitter:description" content="Unit test is very import to improve the code robust. Each time, when we do some changes or code refactor, we need to verify our code can work well. And those errors can be exposed in develop process not in the test process.">
+<meta name="twitter:description" content="Unit test is very import to improve the code robust. Each time, when we do some changes or code refactor, we need to verify our code can work well. And those errors can be exposed in develop process not in the test process.
+Tools For pythhon, we usually use two type of tools to run python test nose2 and pytest, and they both based on unittest. In my mind, if you want to test or debug only one unit case, I recommand to use pytest.">
     </head>
     <body class="
     article-page
@@ -181,7 +184,39 @@
     </ol>
 </aside>
 
-    
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#mock">Mock</a></li>
+  </ul>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
 
             <main class="main full-width">
     <article class="main-article">
@@ -255,6 +290,27 @@
     <p>Unit test is very import to improve the code robust. Each time, when we do some changes or code refactor,
 we need to verify our code can work well. And those errors can be exposed in develop process not in the test
 process.</p>
+<h2 id="tools">Tools</h2>
+<p>For pythhon, we usually use two type of tools to run python test <a class="link" href="https://docs.nose2.io/en/latest/"  target="_blank" rel="noopener"
+    >nose2</a> and
+<a class="link" href="https://docs.pytest.org/en/7.2.x/"  target="_blank" rel="noopener"
+    >pytest</a>, and they both based on <strong>unittest</strong>. In my mind, if you want to test
+or debug only one unit case, I recommand to use pytest.</p>
+<h2 id="mock">Mock</h2>
+<p>Mock is very useful method to write unit test, and there is a very important and confuse about mock.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#a6e22e">@patch.object</span>(Version, <span style="color:#e6db74">&#39;validate_version&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@patch.object</span>(Version, <span style="color:#e6db74">&#39;get_version&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@patch</span>(<span style="color:#e6db74">&#39;pre_validation.linux.verify_linux_version.get_version_from_install_xml&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_verify_mstr_linux_version</span>(self, m_install_xml, m_get_version, m_validate_version):
+</span></span><span style="display:flex;"><span>        m_install_xml<span style="color:#f92672">.</span>return_value <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#34;0.107.5044&#34;</span>, <span style="color:#e6db74">&#34;false&#34;</span>)
+</span></span><span style="display:flex;"><span>        m_get_version<span style="color:#f92672">.</span>return_value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;version_short&#34;</span>, <span style="color:#e6db74">&#34;version_build&#34;</span>
+</span></span><span style="display:flex;"><span>        m_validate_version<span style="color:#f92672">.</span>return_value <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>        return_result <span style="color:#f92672">=</span> verify_linux_version()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>assertTrue(return_result)
+</span></span></code></pre></div><ol>
+<li>Here you can see the order in from right to left not from left to right.</li>
+<li>For install_xml, you can see it use the absoulte path and this function is call in that file, not the function define in that file.</li>
+</ol>
 
 </section>
 
