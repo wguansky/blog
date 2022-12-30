@@ -27,7 +27,7 @@
 &lt;h2 id=&#34;what-should-we-implement-a-metacalss&#34;&gt;What should we implement a metacalss&lt;/h2&gt;
 &lt;p&gt;In order to create an object or class, there are three special methods &lt;strong&gt;__new__&lt;/strong&gt;, &lt;strong&gt;__init__&lt;/strong&gt;, and &lt;strong&gt;__call__&lt;/strong&gt;. When we initial
 an object, it will call &lt;strong&gt;&lt;strong&gt;new&lt;/strong&gt;&lt;/strong&gt; first to malloc the memory and then use &lt;strong&gt;&lt;strong&gt;init&lt;/strong&gt;&lt;/strong&gt; to set some properities. But what&amp;rsquo;s method
-&lt;strong&gt;__call__&lt;/strong&gt;, it just a special method, when you call **ClassName(*args, &lt;strong&gt;kwargs)&lt;/strong&gt;, then it will call method &lt;strong&gt;__call__&lt;/strong&gt;
+&lt;strong&gt;__call__&lt;/strong&gt;, it just a special method, when you call &lt;strong&gt;ClassName(*args, **kwargs)&lt;/strong&gt;, then it will call method &lt;strong&gt;__call__&lt;/strong&gt;
 automactically. So we can change the inital process when we create a class object.&lt;/p&gt;
 &lt;p&gt;Here is an example, how to use meta calss define &lt;strong&gt;Single&lt;/strong&gt; class.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Single&lt;/span&gt;(type):

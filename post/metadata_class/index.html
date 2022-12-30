@@ -309,7 +309,7 @@ class Single(type): pass Now Single is a new metadata class, then you can use it
 <h2 id="what-should-we-implement-a-metacalss">What should we implement a metacalss</h2>
 <p>In order to create an object or class, there are three special methods <strong>__new__</strong>, <strong>__init__</strong>, and <strong>__call__</strong>. When we initial
 an object, it will call <strong><strong>new</strong></strong> first to malloc the memory and then use <strong><strong>init</strong></strong> to set some properities. But what&rsquo;s method
-<strong>__call__</strong>, it just a special method, when you call **ClassName(*args, <strong>kwargs)</strong>, then it will call method <strong>__call__</strong>
+<strong>__call__</strong>, it just a special method, when you call <strong>ClassName(*args, **kwargs)</strong>, then it will call method <strong>__call__</strong>
 automactically. So we can change the inital process when we create a class object.</p>
 <p>Here is an example, how to use meta calss define <strong>Single</strong> class.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Single</span>(type):
