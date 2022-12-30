@@ -287,17 +287,20 @@ Tools For pythhon, we usually use two type of tools to run python test nose2 and
     <section class="article-content">
     
     
-    <p>Unit test is very import to improve the code robust. Each time, when we do some changes or code refactor,
-we need to verify our code can work well. And those errors can be exposed in develop process not in the test
+    <p>Unit test is very import to improve the code robust. Each time,
+when we do some changes or code refactor, we need to verify our code can work
+well. And those errors can be exposed in develop process not in the test
 process.</p>
 <h2 id="tools">Tools</h2>
-<p>For pythhon, we usually use two type of tools to run python test <a class="link" href="https://docs.nose2.io/en/latest/"  target="_blank" rel="noopener"
-    >nose2</a> and
-<a class="link" href="https://docs.pytest.org/en/7.2.x/"  target="_blank" rel="noopener"
-    >pytest</a>, and they both based on <strong>unittest</strong>. In my mind, if you want to test
-or debug only one unit case, I recommand to use pytest.</p>
+<p>For pythhon, we usually use two type of tools to run python test
+<a class="link" href="https://docs.nose2.io/en/latest/"  target="_blank" rel="noopener"
+    >nose2</a> and <a class="link" href="https://docs.pytest.org/en/7.2.x/"  target="_blank" rel="noopener"
+    >pytest</a>,
+and they both based on <strong>unittest</strong>. In my mind, if you want to test or debug
+only one unit case, I recommand to use pytest.</p>
 <h2 id="mock">Mock</h2>
-<p>Mock is very useful method to write unit test, and there is a very important and confuse about mock.</p>
+<p>Mock is very useful method to write unit test, and there is a very important
+and confuse about mock.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#a6e22e">@patch.object</span>(Version, <span style="color:#e6db74">&#39;validate_version&#39;</span>)
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@patch.object</span>(Version, <span style="color:#e6db74">&#39;get_version&#39;</span>)
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@patch</span>(<span style="color:#e6db74">&#39;pre_validation.linux.verify_linux_version.get_version_from_install_xml&#39;</span>)
@@ -309,7 +312,8 @@ or debug only one unit case, I recommand to use pytest.</p>
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>assertTrue(return_result)
 </span></span></code></pre></div><ol>
 <li>Here you can see the order in from right to left not from left to right.</li>
-<li>For install_xml, you can see it use the absoulte path and this function is call in that file, not the function define in that file.</li>
+<li>For install_xml, you can see it use the absoulte path and this function
+is call in that file, not the function define in that file.</li>
 </ol>
 
 </section>

@@ -291,12 +291,13 @@ Publish hugo Create two repos, one is Source repo and one is Page repo For Sourc
     
     
     <p><a class="link" href="https://gohugo.io/"  target="_blank" rel="noopener"
-    >Hugo</a> is a static web develop tool. This website is just use hugo to develop, here is the method
-how to publish it in github.</p>
+    >Hugo</a> is a static web develop tool. This website is just
+use hugo to develop, here is the method how to publish it in github.</p>
 <h2 id="publish-static-web">Publish static web</h2>
 <p>For static website, we can just use <a class="link" href="https:%5c%5cgithub.com"  target="_blank" rel="noopener"
-    >Git</a> to publish it. Go to <strong>Setting</strong> -&gt; <strong>Page</strong> and then set
-the page you want to publish, and then save it.</p>
+    >Git</a> to publish it.
+Go to <strong>Setting</strong> -&gt; <strong>Page</strong> and then set the page you want to publish,
+and then save it.</p>
 <p><img src="/img/publish_page.png"
 	
 	
@@ -313,7 +314,8 @@ the page you want to publish, and then save it.</p>
 <li>For <strong>Source</strong> repo, we set it as public, <strong>Page</strong> as private</li>
 <li>In the github account for <strong>Page</strong>, create a deploy key or personal key</li>
 <li>In the <strong>Source</strong> repo create a <a class="link" href="https://docs.github.com/en/actions"  target="_blank" rel="noopener"
-    >workflow</a> and set the sceret with the personal token.</li>
+    >workflow</a>
+and set the sceret with the personal token.</li>
 </ol>
 <p>Here is the <strong>workflow</strong> for <strong>Source</strong>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">GitHub Pages</span>
@@ -352,7 +354,8 @@ the page you want to publish, and then save it.</p>
 </span></span><span style="display:flex;"><span>          <span style="color:#f92672">publish_dir</span>: <span style="color:#ae81ff">./docs</span>
 </span></span><span style="display:flex;"><span>          <span style="color:#f92672">publish_branch</span>: <span style="color:#ae81ff">main</span>
 </span></span><span style="display:flex;"><span>          <span style="color:#f92672">external_repository</span>: <span style="color:#ae81ff">wguansky/blog</span>
-</span></span></code></pre></div><p>Then the code will be build in <strong>Source</strong> workflow and then push to <strong>Page</strong>, after it finished, <strong>Page</strong>&rsquo;s workflow will build and deploy the page,
+</span></span></code></pre></div><p>Then the code will be build in <strong>Source</strong> workflow and then push to <strong>Page</strong>,
+after it finished, <strong>Page</strong>&rsquo;s workflow will build and deploy the page,
 then you can visit the hugo website.</p>
 
 </section>

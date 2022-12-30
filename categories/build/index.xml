@@ -117,9 +117,10 @@ Linux automation.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;clean&lt;/span&gt;:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;deps&lt;/span&gt;: [&lt;span style=&#34;color:#ae81ff&#34;&gt;dbmigrator:clean, backup:clean, restore:clean]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can also use &lt;a class=&#34;link&#34; href=&#34;https://www.ruanyifeng.com/blog/2015/02/make.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;make&lt;/a&gt; to do build and compile work. Current
-I always use shell or python to do build work, but task or make may more useful, in the future, I can try to convert
-them with &lt;strong&gt;task&lt;/strong&gt; or &lt;strong&gt;make&lt;/strong&gt;.&lt;/p&gt;
+    &gt;make&lt;/a&gt; to do
+build and compile work. Current I always use shell or python to do build work,
+but task or make may more useful, in the future, I can try to convert them
+with &lt;strong&gt;task&lt;/strong&gt; or &lt;strong&gt;make&lt;/strong&gt;.&lt;/p&gt;
 </description>
         </item>
         

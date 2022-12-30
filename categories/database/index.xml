@@ -12,7 +12,8 @@
         <pubDate>Wed, 28 Dec 2022 19:03:42 +0800</pubDate>
         
         <guid>https://wguansky.github.io/blog/post/dbdigram/</guid>
-        <description>&lt;p&gt;This is a very useful tool, you can use it to help generate MySQL and Postgresql database schema just through this tool,
+        <description>&lt;p&gt;This is a very useful tool, you can use it to help generate MySQL and Postgresql
+database schema just through this tool,
 for more information you can refer &lt;a class=&#34;link&#34; href=&#34;https://dbdiagram.io/home&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;DBDigram&lt;/a&gt;&lt;/p&gt;
 </description>
@@ -24,10 +25,12 @@ for more information you can refer &lt;a class=&#34;link&#34; href=&#34;https://
         
         <guid>https://wguansky.github.io/blog/post/dbmigration/</guid>
         <description>&lt;h1 id=&#34;database-schema-migration&#34;&gt;Database Schema Migration&lt;/h1&gt;
-&lt;p&gt;In our daliy work, we will control the database version, but how to upgrade database schema
-or download database schma is very hard for our daliy work, there is a tool name &lt;a class=&#34;link&#34; href=&#34;https://github.com/golang-migrate/migrate#cli-usage&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;p&gt;In our daliy work, we will control the database version, but how to upgrade
+database schema or download database schma is very hard for our daliy work,
+there is a tool name &lt;a class=&#34;link&#34; href=&#34;https://github.com/golang-migrate/migrate#cli-usage&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;dbmigration&lt;/a&gt;.
-In this tool, it provide cli and library for go. Now we can use it in PA and Provision Api to migrate database.&lt;/p&gt;
+In this tool, it provide cli and library for go. Now we can use it in PA and
+Provision Api to migrate database.&lt;/p&gt;
 </description>
         </item>
         

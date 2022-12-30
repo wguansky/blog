@@ -13,12 +13,13 @@
         
         <guid>https://wguansky.github.io/blog/post/publish_hugo_in_github/</guid>
         <description>&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Hugo&lt;/a&gt; is a static web develop tool. This website is just use hugo to develop, here is the method
-how to publish it in github.&lt;/p&gt;
+    &gt;Hugo&lt;/a&gt; is a static web develop tool. This website is just
+use hugo to develop, here is the method how to publish it in github.&lt;/p&gt;
 &lt;h2 id=&#34;publish-static-web&#34;&gt;Publish static web&lt;/h2&gt;
 &lt;p&gt;For static website, we can just use &lt;a class=&#34;link&#34; href=&#34;https:%5c%5cgithub.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Git&lt;/a&gt; to publish it. Go to &lt;strong&gt;Setting&lt;/strong&gt; -&amp;gt; &lt;strong&gt;Page&lt;/strong&gt; and then set
-the page you want to publish, and then save it.&lt;/p&gt;
+    &gt;Git&lt;/a&gt; to publish it.
+Go to &lt;strong&gt;Setting&lt;/strong&gt; -&amp;gt; &lt;strong&gt;Page&lt;/strong&gt; and then set the page you want to publish,
+and then save it.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://wguansky.github.io/blog/img/publish_page.png&#34;
 	
 	
@@ -35,7 +36,8 @@ the page you want to publish, and then save it.&lt;/p&gt;
 &lt;li&gt;For &lt;strong&gt;Source&lt;/strong&gt; repo, we set it as public, &lt;strong&gt;Page&lt;/strong&gt; as private&lt;/li&gt;
 &lt;li&gt;In the github account for &lt;strong&gt;Page&lt;/strong&gt;, create a deploy key or personal key&lt;/li&gt;
 &lt;li&gt;In the &lt;strong&gt;Source&lt;/strong&gt; repo create a &lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/en/actions&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;workflow&lt;/a&gt; and set the sceret with the personal token.&lt;/li&gt;
+    &gt;workflow&lt;/a&gt;
+and set the sceret with the personal token.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Here is the &lt;strong&gt;workflow&lt;/strong&gt; for &lt;strong&gt;Source&lt;/strong&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;GitHub Pages&lt;/span&gt;
@@ -74,7 +76,8 @@ the page you want to publish, and then save it.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;publish_dir&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;./docs&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;publish_branch&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;main&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;external_repository&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;wguansky/blog&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then the code will be build in &lt;strong&gt;Source&lt;/strong&gt; workflow and then push to &lt;strong&gt;Page&lt;/strong&gt;, after it finished, &lt;strong&gt;Page&lt;/strong&gt;&amp;rsquo;s workflow will build and deploy the page,
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then the code will be build in &lt;strong&gt;Source&lt;/strong&gt; workflow and then push to &lt;strong&gt;Page&lt;/strong&gt;,
+after it finished, &lt;strong&gt;Page&lt;/strong&gt;&amp;rsquo;s workflow will build and deploy the page,
 then you can visit the hugo website.&lt;/p&gt;
 </description>
         </item>

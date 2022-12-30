@@ -117,9 +117,10 @@ Linux automation.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;clean&lt;/span&gt;:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;deps&lt;/span&gt;: [&lt;span style=&#34;color:#ae81ff&#34;&gt;dbmigrator:clean, backup:clean, restore:clean]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can also use &lt;a class=&#34;link&#34; href=&#34;https://www.ruanyifeng.com/blog/2015/02/make.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;make&lt;/a&gt; to do build and compile work. Current
-I always use shell or python to do build work, but task or make may more useful, in the future, I can try to convert
-them with &lt;strong&gt;task&lt;/strong&gt; or &lt;strong&gt;make&lt;/strong&gt;.&lt;/p&gt;
+    &gt;make&lt;/a&gt; to do
+build and compile work. Current I always use shell or python to do build work,
+but task or make may more useful, in the future, I can try to convert them
+with &lt;strong&gt;task&lt;/strong&gt; or &lt;strong&gt;make&lt;/strong&gt;.&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -129,11 +130,13 @@ them with &lt;strong&gt;task&lt;/strong&gt; or &lt;strong&gt;make&lt;/strong&gt;
         
         <guid>https://wguansky.github.io/blog/post/terminal_proxy/</guid>
         <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;Sometimes we can&amp;rsquo;t connect forigen website without proxy, we can set chrome with omega proxy, but for local we can&amp;rsquo;t use it.
-This document will introduce how to set proxy in terminate.&lt;/p&gt;
+&lt;p&gt;Sometimes we can&amp;rsquo;t connect forigen website without proxy, we can set chrome with
+omega proxy, but for local we can&amp;rsquo;t use it. This document will introduce how to
+set proxy in terminate.&lt;/p&gt;
 &lt;h2 id=&#34;set-proxy-in-terminal&#34;&gt;Set proxy in terminal&lt;/h2&gt;
 &lt;p&gt;Add the following command in .bashrc or .zshrc file&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alias hp&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https_proxy=\&amp;#34;http://10.27.7.110:8080\&amp;#34; http_proxy=\&amp;#34;http://10.27.7.110:8080\&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alias hp&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https_proxy=\&amp;#34;http://10.27.7.110:8080\&amp;#34; http_proxy=\&amp;#34;http://10.27.7.110
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:8080\&amp;#34;&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;When you want to run a command need proxy, you should run the following command:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hp shell_command
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;test&#34;&gt;Test&lt;/h2&gt;

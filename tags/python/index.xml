@@ -12,12 +12,14 @@
         <pubDate>Fri, 30 Dec 2022 04:37:23 +0800</pubDate>
         
         <guid>https://wguansky.github.io/blog/post/metadata_class/</guid>
-        <description>&lt;p&gt;Everything is object in python, so class is aslo object named &lt;a class=&#34;link&#34; href=&#34;https://www.datacamp.com/tutorial/python-metaclasses&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+        <description>&lt;p&gt;Everything is object in python, so class is aslo object named
+&lt;a class=&#34;link&#34; href=&#34;https://www.datacamp.com/tutorial/python-metaclasses&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Metadata Calss&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;how-to-use-define-and-use-metaclass&#34;&gt;How to use define and use metaclass&lt;/h2&gt;
 &lt;p&gt;The basic metadata class is &lt;strong&gt;type&lt;/strong&gt;, you can define an object from this type.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;PythonClass &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; type(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;class name&amp;#39;&lt;/span&gt;, (supper class,), attributes)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The above will retruen a calss. If you want to define a new class, you can inhiert from type as follow:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The above will retruen a calss. If you want to define a new class, you can
+inhiert from type as follow:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Single&lt;/span&gt;(type):
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;pass&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now &lt;strong&gt;Single&lt;/strong&gt; is a new metadata class, then you can use it to define a new class.&lt;/p&gt;
@@ -25,10 +27,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;pass&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then Logger will try to use Single to help create the class.&lt;/p&gt;
 &lt;h2 id=&#34;what-should-we-implement-a-metacalss&#34;&gt;What should we implement a metacalss&lt;/h2&gt;
-&lt;p&gt;In order to create an object or class, there are three special methods &lt;strong&gt;__new__&lt;/strong&gt;, &lt;strong&gt;__init__&lt;/strong&gt;, and &lt;strong&gt;__call__&lt;/strong&gt;. When we initial
-an object, it will call &lt;strong&gt;&lt;strong&gt;new&lt;/strong&gt;&lt;/strong&gt; first to malloc the memory and then use &lt;strong&gt;&lt;strong&gt;init&lt;/strong&gt;&lt;/strong&gt; to set some properities. But what&amp;rsquo;s method
-&lt;strong&gt;__call__&lt;/strong&gt;, it just a special method, when you call &lt;strong&gt;ClassName(*args, **kwargs)&lt;/strong&gt;, then it will call method &lt;strong&gt;__call__&lt;/strong&gt;
-automactically. So we can change the inital process when we create a class object.&lt;/p&gt;
+&lt;p&gt;In order to create an object or class, there are three special methods
+&lt;strong&gt;__new__&lt;/strong&gt;, &lt;strong&gt;__init__&lt;/strong&gt;, and &lt;strong&gt;__call__&lt;/strong&gt;. When we initial
+an object, it will call &lt;strong&gt;&lt;strong&gt;new&lt;/strong&gt;&lt;/strong&gt; first to malloc the memory and then use
+&lt;strong&gt;&lt;strong&gt;init&lt;/strong&gt;&lt;/strong&gt; to set some properities. But what&amp;rsquo;s method &lt;strong&gt;__call__&lt;/strong&gt;,
+it just a special method, when you call &lt;strong&gt;ClassName(*args, **kwargs)&lt;/strong&gt;,
+then it will call method &lt;strong&gt;__call__&lt;/strong&gt; automactically.
+So we can change the inital process when we create a class object.&lt;/p&gt;
 &lt;p&gt;Here is an example, how to use meta calss define &lt;strong&gt;Single&lt;/strong&gt; class.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Single&lt;/span&gt;(type):
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    _instances &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {}
@@ -39,9 +44,12 @@ automactically. So we can change the inital process when we create a class objec
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Define object&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Logger&lt;/span&gt;(metaclass&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;Single):
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;pass&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;When you call Logger() to create an object, this it will call Single&amp;rsquo;s __new__, and __init__, then it will return an class object,
-then it will call __call__ method of &lt;strong&gt;metaclass&lt;/strong&gt;. There is an very important notice: If you special __call__ method, then
-the methods __init__ and __new__ of object will never been call, if you want it still be called. For this case, it will call
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;When you call Logger() to create an object, this it will call Single&amp;rsquo;s
+__new__, and __init__, then it will return an class object,
+then it will call __call__ method of &lt;strong&gt;metaclass&lt;/strong&gt;.
+There is an very important notice: If you special __call__ method, then
+the methods __init__ and __new__ of object will never been call,
+if you want it still be called. For this case, it will call
 __init__ and __new__, because super class will call them automatically.&lt;/p&gt;
 &lt;h2 id=&#34;example-code&#34;&gt;Example Code&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env python3&lt;/span&gt;
@@ -89,17 +97,20 @@ __init__ and __new__, because super class will call them automatically.&lt;/p&gt
         <pubDate>Thu, 29 Dec 2022 13:35:43 +0800</pubDate>
         
         <guid>https://wguansky.github.io/blog/post/python_test/</guid>
-        <description>&lt;p&gt;Unit test is very import to improve the code robust. Each time, when we do some changes or code refactor,
-we need to verify our code can work well. And those errors can be exposed in develop process not in the test
+        <description>&lt;p&gt;Unit test is very import to improve the code robust. Each time,
+when we do some changes or code refactor, we need to verify our code can work
+well. And those errors can be exposed in develop process not in the test
 process.&lt;/p&gt;
 &lt;h2 id=&#34;tools&#34;&gt;Tools&lt;/h2&gt;
-&lt;p&gt;For pythhon, we usually use two type of tools to run python test &lt;a class=&#34;link&#34; href=&#34;https://docs.nose2.io/en/latest/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;nose2&lt;/a&gt; and
-&lt;a class=&#34;link&#34; href=&#34;https://docs.pytest.org/en/7.2.x/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;pytest&lt;/a&gt;, and they both based on &lt;strong&gt;unittest&lt;/strong&gt;. In my mind, if you want to test
-or debug only one unit case, I recommand to use pytest.&lt;/p&gt;
+&lt;p&gt;For pythhon, we usually use two type of tools to run python test
+&lt;a class=&#34;link&#34; href=&#34;https://docs.nose2.io/en/latest/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;nose2&lt;/a&gt; and &lt;a class=&#34;link&#34; href=&#34;https://docs.pytest.org/en/7.2.x/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;pytest&lt;/a&gt;,
+and they both based on &lt;strong&gt;unittest&lt;/strong&gt;. In my mind, if you want to test or debug
+only one unit case, I recommand to use pytest.&lt;/p&gt;
 &lt;h2 id=&#34;mock&#34;&gt;Mock&lt;/h2&gt;
-&lt;p&gt;Mock is very useful method to write unit test, and there is a very important and confuse about mock.&lt;/p&gt;
+&lt;p&gt;Mock is very useful method to write unit test, and there is a very important
+and confuse about mock.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;@patch.object&lt;/span&gt;(Version, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;validate_version&amp;#39;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;@patch.object&lt;/span&gt;(Version, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;get_version&amp;#39;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;@patch&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;pre_validation.linux.verify_linux_version.get_version_from_install_xml&amp;#39;&lt;/span&gt;)
@@ -111,7 +122,8 @@ or debug only one unit case, I recommand to use pytest.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;assertTrue(return_result)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol&gt;
 &lt;li&gt;Here you can see the order in from right to left not from left to right.&lt;/li&gt;
-&lt;li&gt;For install_xml, you can see it use the absoulte path and this function is call in that file, not the function define in that file.&lt;/li&gt;
+&lt;li&gt;For install_xml, you can see it use the absoulte path and this function
+is call in that file, not the function define in that file.&lt;/li&gt;
 &lt;/ol&gt;
 </description>
         </item>

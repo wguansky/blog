@@ -12,7 +12,8 @@
         <pubDate>Wed, 28 Dec 2022 22:26:58 +0800</pubDate>
         
         <guid>https://wguansky.github.io/blog/post/go_test/</guid>
-        <description>&lt;p&gt;This article is about go unit test, in this article I will show some key and basic use for go.&lt;/p&gt;
+        <description>&lt;p&gt;This article is about go unit test, in this article I will show some key and
+basic use for go.&lt;/p&gt;
 &lt;h2 id=&#34;basic&#34;&gt;Basic&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;The test file must named as XXXX_test.go2.&lt;/li&gt;
@@ -32,32 +33,39 @@
 &lt;li&gt;-count=1 which means do nont enable cache, if enable this, it can improve the performance&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;run-unit-test-in-a-container&#34;&gt;Run unit test in a container&lt;/h2&gt;
-&lt;p&gt;For go unit test, it may fail when you try to run unit test on a machine such as my mac, it may fail and
-show error permission denied, so we can mount our code into a go docker and then run our unit test code
+&lt;p&gt;For go unit test, it may fail when you try to run unit test on a machine such as
+my mac, it may fail and show error permission denied, so we can mount our code
+into a go docker and then run our unit test code
 in docker, this is a very useful method to run unit test. Here is the command:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; docker run -it -v /Users/wguan/work/code/study:/go --privileged docker.io/golang  bash
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; docker run -it -v /Users/wguan/work/code/study:/go --privileged docker.io/golang
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; bash
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;unit-test&#34;&gt;Unit test&lt;/h2&gt;
-&lt;p&gt;In order to write a good unit test, there are many things useful libraries which can help us.&lt;/p&gt;
+&lt;p&gt;In order to write a good unit test, there are many things useful libraries which
+can help us.&lt;/p&gt;
 &lt;h3 id=&#34;testifyhttpspkggodevgithubcomstretchrtestifyv181&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://pkg.go.dev/github.com/stretchr/testify@v1.8.1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Testify&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;For this package, the most use of this package is &lt;em&gt;&lt;strong&gt;assert&lt;/strong&gt;&lt;/em&gt;, we can use this package to assert many conditions.&lt;/p&gt;
+&lt;p&gt;For this package, the most use of this package is &lt;em&gt;&lt;strong&gt;assert&lt;/strong&gt;&lt;/em&gt;, we can use this
+package to assert many conditions.&lt;/p&gt;
 &lt;h3 id=&#34;gomockhttpsgithubcomgolangmock&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/golang/mock&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Gomock&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;This package can only mock &lt;strong&gt;interface&lt;/strong&gt;, and if you want to mock a function or method, it can not work very well.
-And for this package it also requires to generate mock code, it can&amp;rsquo;t mock directly.&lt;/p&gt;
+&lt;p&gt;This package can only mock &lt;strong&gt;interface&lt;/strong&gt;, and if you want to mock a function or
+method, it can not work very well. And for this package it also requires to
+generate mock code, it can&amp;rsquo;t mock directly.&lt;/p&gt;
 &lt;h3 id=&#34;gomonkeyhttpsgithubcomagiledragongomonkey&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/agiledragon/gomonkey&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;gomonkey&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Gomonkey is the most useful package for go test, it can mock all of the type function, methods, interface and variable. But
-some platforms may not support, so you have to run those unit tests in a docker.&lt;/p&gt;
+&lt;p&gt;Gomonkey is the most useful package for go test, it can mock all of the type
+function, methods, interface and variable. But some platforms may not support,
+so you have to run those unit tests in a docker.&lt;/p&gt;
 &lt;h3 id=&#34;gostubhttpspkggodevgithubcomprashantvgostub&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://pkg.go.dev/github.com/prashantv/gostub&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;gostub&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Gostub is used to mock variable.&lt;/p&gt;
 &lt;h3 id=&#34;conveyhttpspkggodevgithubcomsmartystreetsgoconveyconvey&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://pkg.go.dev/github.com/smartystreets/goconvey/convey&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;convey&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;convey is very useful and friendly unit test package, it can help us to print and shows case clearly.&lt;/p&gt;
+&lt;p&gt;convey is very useful and friendly unit test package, it can help us to print
+and shows case clearly.&lt;/p&gt;
 &lt;h3 id=&#34;test-console&#34;&gt;Test console&lt;/h3&gt;
-&lt;p&gt;There are some cases we print our result to the console, so we need to catch the output and compare the result, here is the
-example code.&lt;/p&gt;
+&lt;p&gt;There are some cases we print our result to the console, so we need to catch the
+output and compare the result, here is the example code.&lt;/p&gt;
 &lt;p&gt;function code:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;test&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;

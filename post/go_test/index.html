@@ -303,7 +303,8 @@ Basic unit test, it will be like format TestXX(t *testing.T){} Benchmark test, i
     <section class="article-content">
     
     
-    <p>This article is about go unit test, in this article I will show some key and basic use for go.</p>
+    <p>This article is about go unit test, in this article I will show some key and
+basic use for go.</p>
 <h2 id="basic">Basic</h2>
 <ol>
 <li>The test file must named as XXXX_test.go2.</li>
@@ -323,32 +324,39 @@ Basic unit test, it will be like format TestXX(t *testing.T){} Benchmark test, i
 <li>-count=1 which means do nont enable cache, if enable this, it can improve the performance</li>
 </ol>
 <h2 id="run-unit-test-in-a-container">Run unit test in a container</h2>
-<p>For go unit test, it may fail when you try to run unit test on a machine such as my mac, it may fail and
-show error permission denied, so we can mount our code into a go docker and then run our unit test code
+<p>For go unit test, it may fail when you try to run unit test on a machine such as
+my mac, it may fail and show error permission denied, so we can mount our code
+into a go docker and then run our unit test code
 in docker, this is a very useful method to run unit test. Here is the command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span> docker run -it -v /Users/wguan/work/code/study:/go --privileged docker.io/golang  bash
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span> docker run -it -v /Users/wguan/work/code/study:/go --privileged docker.io/golang
+</span></span><span style="display:flex;"><span> bash
 </span></span></code></pre></div><h2 id="unit-test">Unit test</h2>
-<p>In order to write a good unit test, there are many things useful libraries which can help us.</p>
+<p>In order to write a good unit test, there are many things useful libraries which
+can help us.</p>
 <h3 id="testifyhttpspkggodevgithubcomstretchrtestifyv181"><a class="link" href="https://pkg.go.dev/github.com/stretchr/testify@v1.8.1"  target="_blank" rel="noopener"
     >Testify</a></h3>
-<p>For this package, the most use of this package is <em><strong>assert</strong></em>, we can use this package to assert many conditions.</p>
+<p>For this package, the most use of this package is <em><strong>assert</strong></em>, we can use this
+package to assert many conditions.</p>
 <h3 id="gomockhttpsgithubcomgolangmock"><a class="link" href="https://github.com/golang/mock"  target="_blank" rel="noopener"
     >Gomock</a></h3>
-<p>This package can only mock <strong>interface</strong>, and if you want to mock a function or method, it can not work very well.
-And for this package it also requires to generate mock code, it can&rsquo;t mock directly.</p>
+<p>This package can only mock <strong>interface</strong>, and if you want to mock a function or
+method, it can not work very well. And for this package it also requires to
+generate mock code, it can&rsquo;t mock directly.</p>
 <h3 id="gomonkeyhttpsgithubcomagiledragongomonkey"><a class="link" href="https://github.com/agiledragon/gomonkey"  target="_blank" rel="noopener"
     >gomonkey</a></h3>
-<p>Gomonkey is the most useful package for go test, it can mock all of the type function, methods, interface and variable. But
-some platforms may not support, so you have to run those unit tests in a docker.</p>
+<p>Gomonkey is the most useful package for go test, it can mock all of the type
+function, methods, interface and variable. But some platforms may not support,
+so you have to run those unit tests in a docker.</p>
 <h3 id="gostubhttpspkggodevgithubcomprashantvgostub"><a class="link" href="https://pkg.go.dev/github.com/prashantv/gostub"  target="_blank" rel="noopener"
     >gostub</a></h3>
 <p>Gostub is used to mock variable.</p>
 <h3 id="conveyhttpspkggodevgithubcomsmartystreetsgoconveyconvey"><a class="link" href="https://pkg.go.dev/github.com/smartystreets/goconvey/convey"  target="_blank" rel="noopener"
     >convey</a></h3>
-<p>convey is very useful and friendly unit test package, it can help us to print and shows case clearly.</p>
+<p>convey is very useful and friendly unit test package, it can help us to print
+and shows case clearly.</p>
 <h3 id="test-console">Test console</h3>
-<p>There are some cases we print our result to the console, so we need to catch the output and compare the result, here is the
-example code.</p>
+<p>There are some cases we print our result to the console, so we need to catch the
+output and compare the result, here is the example code.</p>
 <p>function code:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">test</span>
 </span></span><span style="display:flex;"><span>

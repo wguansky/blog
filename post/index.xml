@@ -12,12 +12,14 @@
         <pubDate>Fri, 30 Dec 2022 04:37:23 +0800</pubDate>
         
         <guid>https://wguansky.github.io/blog/post/metadata_class/</guid>
-        <description>&lt;p&gt;Everything is object in python, so class is aslo object named &lt;a class=&#34;link&#34; href=&#34;https://www.datacamp.com/tutorial/python-metaclasses&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+        <description>&lt;p&gt;Everything is object in python, so class is aslo object named
+&lt;a class=&#34;link&#34; href=&#34;https://www.datacamp.com/tutorial/python-metaclasses&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Metadata Calss&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;how-to-use-define-and-use-metaclass&#34;&gt;How to use define and use metaclass&lt;/h2&gt;
 &lt;p&gt;The basic metadata class is &lt;strong&gt;type&lt;/strong&gt;, you can define an object from this type.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;PythonClass &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; type(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;class name&amp;#39;&lt;/span&gt;, (supper class,), attributes)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The above will retruen a calss. If you want to define a new class, you can inhiert from type as follow:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The above will retruen a calss. If you want to define a new class, you can
+inhiert from type as follow:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Single&lt;/span&gt;(type):
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;pass&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now &lt;strong&gt;Single&lt;/strong&gt; is a new metadata class, then you can use it to define a new class.&lt;/p&gt;
@@ -25,10 +27,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;pass&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then Logger will try to use Single to help create the class.&lt;/p&gt;
 &lt;h2 id=&#34;what-should-we-implement-a-metacalss&#34;&gt;What should we implement a metacalss&lt;/h2&gt;
-&lt;p&gt;In order to create an object or class, there are three special methods &lt;strong&gt;__new__&lt;/strong&gt;, &lt;strong&gt;__init__&lt;/strong&gt;, and &lt;strong&gt;__call__&lt;/strong&gt;. When we initial
-an object, it will call &lt;strong&gt;&lt;strong&gt;new&lt;/strong&gt;&lt;/strong&gt; first to malloc the memory and then use &lt;strong&gt;&lt;strong&gt;init&lt;/strong&gt;&lt;/strong&gt; to set some properities. But what&amp;rsquo;s method
-&lt;strong&gt;__call__&lt;/strong&gt;, it just a special method, when you call &lt;strong&gt;ClassName(*args, **kwargs)&lt;/strong&gt;, then it will call method &lt;strong&gt;__call__&lt;/strong&gt;
-automactically. So we can change the inital process when we create a class object.&lt;/p&gt;
+&lt;p&gt;In order to create an object or class, there are three special methods
+&lt;strong&gt;__new__&lt;/strong&gt;, &lt;strong&gt;__init__&lt;/strong&gt;, and &lt;strong&gt;__call__&lt;/strong&gt;. When we initial
+an object, it will call &lt;strong&gt;&lt;strong&gt;new&lt;/strong&gt;&lt;/strong&gt; first to malloc the memory and then use
+&lt;strong&gt;&lt;strong&gt;init&lt;/strong&gt;&lt;/strong&gt; to set some properities. But what&amp;rsquo;s method &lt;strong&gt;__call__&lt;/strong&gt;,
+it just a special method, when you call &lt;strong&gt;ClassName(*args, **kwargs)&lt;/strong&gt;,
+then it will call method &lt;strong&gt;__call__&lt;/strong&gt; automactically.
+So we can change the inital process when we create a class object.&lt;/p&gt;
 &lt;p&gt;Here is an example, how to use meta calss define &lt;strong&gt;Single&lt;/strong&gt; class.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Single&lt;/span&gt;(type):
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    _instances &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {}
@@ -39,9 +44,12 @@ automactically. So we can change the inital process when we create a class objec
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Define object&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Logger&lt;/span&gt;(metaclass&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;Single):
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;pass&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;When you call Logger() to create an object, this it will call Single&amp;rsquo;s __new__, and __init__, then it will return an class object,
-then it will call __call__ method of &lt;strong&gt;metaclass&lt;/strong&gt;. There is an very important notice: If you special __call__ method, then
-the methods __init__ and __new__ of object will never been call, if you want it still be called. For this case, it will call
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;When you call Logger() to create an object, this it will call Single&amp;rsquo;s
+__new__, and __init__, then it will return an class object,
+then it will call __call__ method of &lt;strong&gt;metaclass&lt;/strong&gt;.
+There is an very important notice: If you special __call__ method, then
+the methods __init__ and __new__ of object will never been call,
+if you want it still be called. For this case, it will call
 __init__ and __new__, because super class will call them automatically.&lt;/p&gt;
 &lt;h2 id=&#34;example-code&#34;&gt;Example Code&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env python3&lt;/span&gt;
@@ -90,12 +98,13 @@ __init__ and __new__, because super class will call them automatically.&lt;/p&gt
         
         <guid>https://wguansky.github.io/blog/post/publish_hugo_in_github/</guid>
         <description>&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Hugo&lt;/a&gt; is a static web develop tool. This website is just use hugo to develop, here is the method
-how to publish it in github.&lt;/p&gt;
+    &gt;Hugo&lt;/a&gt; is a static web develop tool. This website is just
+use hugo to develop, here is the method how to publish it in github.&lt;/p&gt;
 &lt;h2 id=&#34;publish-static-web&#34;&gt;Publish static web&lt;/h2&gt;
 &lt;p&gt;For static website, we can just use &lt;a class=&#34;link&#34; href=&#34;https:%5c%5cgithub.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Git&lt;/a&gt; to publish it. Go to &lt;strong&gt;Setting&lt;/strong&gt; -&amp;gt; &lt;strong&gt;Page&lt;/strong&gt; and then set
-the page you want to publish, and then save it.&lt;/p&gt;
+    &gt;Git&lt;/a&gt; to publish it.
+Go to &lt;strong&gt;Setting&lt;/strong&gt; -&amp;gt; &lt;strong&gt;Page&lt;/strong&gt; and then set the page you want to publish,
+and then save it.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://wguansky.github.io/blog/img/publish_page.png&#34;
 	
 	
@@ -112,7 +121,8 @@ the page you want to publish, and then save it.&lt;/p&gt;
 &lt;li&gt;For &lt;strong&gt;Source&lt;/strong&gt; repo, we set it as public, &lt;strong&gt;Page&lt;/strong&gt; as private&lt;/li&gt;
 &lt;li&gt;In the github account for &lt;strong&gt;Page&lt;/strong&gt;, create a deploy key or personal key&lt;/li&gt;
 &lt;li&gt;In the &lt;strong&gt;Source&lt;/strong&gt; repo create a &lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/en/actions&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;workflow&lt;/a&gt; and set the sceret with the personal token.&lt;/li&gt;
+    &gt;workflow&lt;/a&gt;
+and set the sceret with the personal token.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Here is the &lt;strong&gt;workflow&lt;/strong&gt; for &lt;strong&gt;Source&lt;/strong&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;GitHub Pages&lt;/span&gt;
@@ -151,7 +161,8 @@ the page you want to publish, and then save it.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;publish_dir&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;./docs&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;publish_branch&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;main&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;external_repository&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;wguansky/blog&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then the code will be build in &lt;strong&gt;Source&lt;/strong&gt; workflow and then push to &lt;strong&gt;Page&lt;/strong&gt;, after it finished, &lt;strong&gt;Page&lt;/strong&gt;&amp;rsquo;s workflow will build and deploy the page,
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then the code will be build in &lt;strong&gt;Source&lt;/strong&gt; workflow and then push to &lt;strong&gt;Page&lt;/strong&gt;,
+after it finished, &lt;strong&gt;Page&lt;/strong&gt;&amp;rsquo;s workflow will build and deploy the page,
 then you can visit the hugo website.&lt;/p&gt;
 </description>
         </item>
@@ -161,17 +172,20 @@ then you can visit the hugo website.&lt;/p&gt;
         <pubDate>Thu, 29 Dec 2022 13:35:43 +0800</pubDate>
         
         <guid>https://wguansky.github.io/blog/post/python_test/</guid>
-        <description>&lt;p&gt;Unit test is very import to improve the code robust. Each time, when we do some changes or code refactor,
-we need to verify our code can work well. And those errors can be exposed in develop process not in the test
+        <description>&lt;p&gt;Unit test is very import to improve the code robust. Each time,
+when we do some changes or code refactor, we need to verify our code can work
+well. And those errors can be exposed in develop process not in the test
 process.&lt;/p&gt;
 &lt;h2 id=&#34;tools&#34;&gt;Tools&lt;/h2&gt;
-&lt;p&gt;For pythhon, we usually use two type of tools to run python test &lt;a class=&#34;link&#34; href=&#34;https://docs.nose2.io/en/latest/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;nose2&lt;/a&gt; and
-&lt;a class=&#34;link&#34; href=&#34;https://docs.pytest.org/en/7.2.x/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;pytest&lt;/a&gt;, and they both based on &lt;strong&gt;unittest&lt;/strong&gt;. In my mind, if you want to test
-or debug only one unit case, I recommand to use pytest.&lt;/p&gt;
+&lt;p&gt;For pythhon, we usually use two type of tools to run python test
+&lt;a class=&#34;link&#34; href=&#34;https://docs.nose2.io/en/latest/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;nose2&lt;/a&gt; and &lt;a class=&#34;link&#34; href=&#34;https://docs.pytest.org/en/7.2.x/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;pytest&lt;/a&gt;,
+and they both based on &lt;strong&gt;unittest&lt;/strong&gt;. In my mind, if you want to test or debug
+only one unit case, I recommand to use pytest.&lt;/p&gt;
 &lt;h2 id=&#34;mock&#34;&gt;Mock&lt;/h2&gt;
-&lt;p&gt;Mock is very useful method to write unit test, and there is a very important and confuse about mock.&lt;/p&gt;
+&lt;p&gt;Mock is very useful method to write unit test, and there is a very important
+and confuse about mock.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;@patch.object&lt;/span&gt;(Version, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;validate_version&amp;#39;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;@patch.object&lt;/span&gt;(Version, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;get_version&amp;#39;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;@patch&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;pre_validation.linux.verify_linux_version.get_version_from_install_xml&amp;#39;&lt;/span&gt;)
@@ -183,7 +197,8 @@ or debug only one unit case, I recommand to use pytest.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;assertTrue(return_result)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol&gt;
 &lt;li&gt;Here you can see the order in from right to left not from left to right.&lt;/li&gt;
-&lt;li&gt;For install_xml, you can see it use the absoulte path and this function is call in that file, not the function define in that file.&lt;/li&gt;
+&lt;li&gt;For install_xml, you can see it use the absoulte path and this function
+is call in that file, not the function define in that file.&lt;/li&gt;
 &lt;/ol&gt;
 </description>
         </item>
@@ -298,9 +313,10 @@ Linux automation.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;clean&lt;/span&gt;:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;deps&lt;/span&gt;: [&lt;span style=&#34;color:#ae81ff&#34;&gt;dbmigrator:clean, backup:clean, restore:clean]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can also use &lt;a class=&#34;link&#34; href=&#34;https://www.ruanyifeng.com/blog/2015/02/make.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;make&lt;/a&gt; to do build and compile work. Current
-I always use shell or python to do build work, but task or make may more useful, in the future, I can try to convert
-them with &lt;strong&gt;task&lt;/strong&gt; or &lt;strong&gt;make&lt;/strong&gt;.&lt;/p&gt;
+    &gt;make&lt;/a&gt; to do
+build and compile work. Current I always use shell or python to do build work,
+but task or make may more useful, in the future, I can try to convert them
+with &lt;strong&gt;task&lt;/strong&gt; or &lt;strong&gt;make&lt;/strong&gt;.&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -309,7 +325,8 @@ them with &lt;strong&gt;task&lt;/strong&gt; or &lt;strong&gt;make&lt;/strong&gt;
         <pubDate>Wed, 28 Dec 2022 22:26:58 +0800</pubDate>
         
         <guid>https://wguansky.github.io/blog/post/go_test/</guid>
-        <description>&lt;p&gt;This article is about go unit test, in this article I will show some key and basic use for go.&lt;/p&gt;
+        <description>&lt;p&gt;This article is about go unit test, in this article I will show some key and
+basic use for go.&lt;/p&gt;
 &lt;h2 id=&#34;basic&#34;&gt;Basic&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;The test file must named as XXXX_test.go2.&lt;/li&gt;
@@ -329,32 +346,39 @@ them with &lt;strong&gt;task&lt;/strong&gt; or &lt;strong&gt;make&lt;/strong&gt;
 &lt;li&gt;-count=1 which means do nont enable cache, if enable this, it can improve the performance&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;run-unit-test-in-a-container&#34;&gt;Run unit test in a container&lt;/h2&gt;
-&lt;p&gt;For go unit test, it may fail when you try to run unit test on a machine such as my mac, it may fail and
-show error permission denied, so we can mount our code into a go docker and then run our unit test code
+&lt;p&gt;For go unit test, it may fail when you try to run unit test on a machine such as
+my mac, it may fail and show error permission denied, so we can mount our code
+into a go docker and then run our unit test code
 in docker, this is a very useful method to run unit test. Here is the command:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; docker run -it -v /Users/wguan/work/code/study:/go --privileged docker.io/golang  bash
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; docker run -it -v /Users/wguan/work/code/study:/go --privileged docker.io/golang
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; bash
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;unit-test&#34;&gt;Unit test&lt;/h2&gt;
-&lt;p&gt;In order to write a good unit test, there are many things useful libraries which can help us.&lt;/p&gt;
+&lt;p&gt;In order to write a good unit test, there are many things useful libraries which
+can help us.&lt;/p&gt;
 &lt;h3 id=&#34;testifyhttpspkggodevgithubcomstretchrtestifyv181&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://pkg.go.dev/github.com/stretchr/testify@v1.8.1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Testify&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;For this package, the most use of this package is &lt;em&gt;&lt;strong&gt;assert&lt;/strong&gt;&lt;/em&gt;, we can use this package to assert many conditions.&lt;/p&gt;
+&lt;p&gt;For this package, the most use of this package is &lt;em&gt;&lt;strong&gt;assert&lt;/strong&gt;&lt;/em&gt;, we can use this
+package to assert many conditions.&lt;/p&gt;
 &lt;h3 id=&#34;gomockhttpsgithubcomgolangmock&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/golang/mock&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Gomock&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;This package can only mock &lt;strong&gt;interface&lt;/strong&gt;, and if you want to mock a function or method, it can not work very well.
-And for this package it also requires to generate mock code, it can&amp;rsquo;t mock directly.&lt;/p&gt;
+&lt;p&gt;This package can only mock &lt;strong&gt;interface&lt;/strong&gt;, and if you want to mock a function or
+method, it can not work very well. And for this package it also requires to
+generate mock code, it can&amp;rsquo;t mock directly.&lt;/p&gt;
 &lt;h3 id=&#34;gomonkeyhttpsgithubcomagiledragongomonkey&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/agiledragon/gomonkey&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;gomonkey&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Gomonkey is the most useful package for go test, it can mock all of the type function, methods, interface and variable. But
-some platforms may not support, so you have to run those unit tests in a docker.&lt;/p&gt;
+&lt;p&gt;Gomonkey is the most useful package for go test, it can mock all of the type
+function, methods, interface and variable. But some platforms may not support,
+so you have to run those unit tests in a docker.&lt;/p&gt;
 &lt;h3 id=&#34;gostubhttpspkggodevgithubcomprashantvgostub&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://pkg.go.dev/github.com/prashantv/gostub&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;gostub&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Gostub is used to mock variable.&lt;/p&gt;
 &lt;h3 id=&#34;conveyhttpspkggodevgithubcomsmartystreetsgoconveyconvey&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://pkg.go.dev/github.com/smartystreets/goconvey/convey&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;convey&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;convey is very useful and friendly unit test package, it can help us to print and shows case clearly.&lt;/p&gt;
+&lt;p&gt;convey is very useful and friendly unit test package, it can help us to print
+and shows case clearly.&lt;/p&gt;
 &lt;h3 id=&#34;test-console&#34;&gt;Test console&lt;/h3&gt;
-&lt;p&gt;There are some cases we print our result to the console, so we need to catch the output and compare the result, here is the
-example code.&lt;/p&gt;
+&lt;p&gt;There are some cases we print our result to the console, so we need to catch the
+output and compare the result, here is the example code.&lt;/p&gt;
 &lt;p&gt;function code:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;test&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -395,7 +419,8 @@ example code.&lt;/p&gt;
         <pubDate>Wed, 28 Dec 2022 19:03:42 +0800</pubDate>
         
         <guid>https://wguansky.github.io/blog/post/dbdigram/</guid>
-        <description>&lt;p&gt;This is a very useful tool, you can use it to help generate MySQL and Postgresql database schema just through this tool,
+        <description>&lt;p&gt;This is a very useful tool, you can use it to help generate MySQL and Postgresql
+database schema just through this tool,
 for more information you can refer &lt;a class=&#34;link&#34; href=&#34;https://dbdiagram.io/home&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;DBDigram&lt;/a&gt;&lt;/p&gt;
 </description>
@@ -407,10 +432,12 @@ for more information you can refer &lt;a class=&#34;link&#34; href=&#34;https://
         
         <guid>https://wguansky.github.io/blog/post/dbmigration/</guid>
         <description>&lt;h1 id=&#34;database-schema-migration&#34;&gt;Database Schema Migration&lt;/h1&gt;
-&lt;p&gt;In our daliy work, we will control the database version, but how to upgrade database schema
-or download database schma is very hard for our daliy work, there is a tool name &lt;a class=&#34;link&#34; href=&#34;https://github.com/golang-migrate/migrate#cli-usage&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;p&gt;In our daliy work, we will control the database version, but how to upgrade
+database schema or download database schma is very hard for our daliy work,
+there is a tool name &lt;a class=&#34;link&#34; href=&#34;https://github.com/golang-migrate/migrate#cli-usage&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;dbmigration&lt;/a&gt;.
-In this tool, it provide cli and library for go. Now we can use it in PA and Provision Api to migrate database.&lt;/p&gt;
+In this tool, it provide cli and library for go. Now we can use it in PA and
+Provision Api to migrate database.&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -420,11 +447,13 @@ In this tool, it provide cli and library for go. Now we can use it in PA and Pro
         
         <guid>https://wguansky.github.io/blog/post/terminal_proxy/</guid>
         <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;Sometimes we can&amp;rsquo;t connect forigen website without proxy, we can set chrome with omega proxy, but for local we can&amp;rsquo;t use it.
-This document will introduce how to set proxy in terminate.&lt;/p&gt;
+&lt;p&gt;Sometimes we can&amp;rsquo;t connect forigen website without proxy, we can set chrome with
+omega proxy, but for local we can&amp;rsquo;t use it. This document will introduce how to
+set proxy in terminate.&lt;/p&gt;
 &lt;h2 id=&#34;set-proxy-in-terminal&#34;&gt;Set proxy in terminal&lt;/h2&gt;
 &lt;p&gt;Add the following command in .bashrc or .zshrc file&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alias hp&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https_proxy=\&amp;#34;http://10.27.7.110:8080\&amp;#34; http_proxy=\&amp;#34;http://10.27.7.110:8080\&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alias hp&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https_proxy=\&amp;#34;http://10.27.7.110:8080\&amp;#34; http_proxy=\&amp;#34;http://10.27.7.110
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:8080\&amp;#34;&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;When you want to run a command need proxy, you should run the following command:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hp shell_command
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;test&#34;&gt;Test&lt;/h2&gt;
