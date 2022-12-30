@@ -101,7 +101,7 @@ __init__ and __new__, because super class will call them automatically.&lt;/p&gt
     &gt;Hugo&lt;/a&gt; is a static web develop tool. This website is just
 use hugo to develop, here is the method how to publish it in github.&lt;/p&gt;
 &lt;h2 id=&#34;publish-static-web&#34;&gt;Publish static web&lt;/h2&gt;
-&lt;p&gt;For static website, we can just use &lt;a class=&#34;link&#34; href=&#34;https:%5c%5cgithub.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;p&gt;For static website, we can just use &lt;a class=&#34;link&#34; href=&#34;https://github.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Git&lt;/a&gt; to publish it.
 Go to &lt;strong&gt;Setting&lt;/strong&gt; -&amp;gt; &lt;strong&gt;Page&lt;/strong&gt; and then set the page you want to publish,
 and then save it.&lt;/p&gt;
