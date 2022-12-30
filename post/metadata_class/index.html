@@ -214,6 +214,7 @@ class Single(type): pass Now Single is a new metadata class, then you can use it
   <ul>
     <li><a href="#how-to-use-define-and-use-metaclass">How to use define and use metaclass</a></li>
     <li><a href="#what-should-we-implement-a-metacalss">What should we implement a metacalss</a></li>
+    <li><a href="#example-code">Example Code</a></li>
   </ul>
 </nav>
         </div>
@@ -324,7 +325,45 @@ automactically. So we can change the inital process when we create a class objec
 then it will call <strong>call</strong> method of <strong>metaclass</strong>. There is an very important notice: &ndash;If you special <strong>call</strong> method, then
 the methods <strong>init</strong> and <strong>new</strong> of object will never been call, if you want it still be called. For this case, it will call <strong>init</strong>
 and <strong>new</strong>, because super class will call them automatically.</p>
-
+<h2 id="example-code">Example Code</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env python3</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># -*- coding: utf-8 -*-</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#*************************************************************************</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e"># File Name: test.py</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e"># Author: Guan Wei</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e"># Mail: wguan@microstrategy.com </span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e"># Created Time: Sun Oct 30 22:49:17 2022</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#************************************************************************</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ClassA</span>(type):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __new__(cls, name, base, dct):
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;metadata class&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> type<span style="color:#f92672">.</span>__new__(cls, name, base, dct)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __call__(cls, <span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs):
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;hello world!&#34;</span>)
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#39;call ClassA instance&#39;</span>)
+</span></span><span style="display:flex;"><span>        instance <span style="color:#f92672">=</span> cls<span style="color:#f92672">.</span>__new__()
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># instance.__new__()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># instance.__init__()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> instance
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ClassB</span>(object):
+</span></span><span style="display:flex;"><span>    __metaclass__ <span style="color:#f92672">=</span> ClassA
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;Call classb init&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __new__(cls):
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;calss classb new&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> object<span style="color:#f92672">.</span>__new__(cls)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__<span style="color:#f92672">==</span><span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    x<span style="color:#f92672">=</span>ClassB()
+</span></span></code></pre></div>
 </section>
 
 
