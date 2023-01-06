@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Rust on Wei Guan</title>
+        <link>https://wguansky.github.io/blog/tags/rust/</link>
+        <description>Recent content in Rust on Wei Guan</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <lastBuildDate>Fri, 06 Jan 2023 17:56:14 +0800</lastBuildDate><atom:link href="https://wguansky.github.io/blog/tags/rust/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Rust Analyzer</title>
+        <link>https://wguansky.github.io/blog/post/rust_analyzer/</link>
+        <pubDate>Fri, 06 Jan 2023 17:56:14 +0800</pubDate>
+        
+        <guid>https://wguansky.github.io/blog/post/rust_analyzer/</guid>
+        <description>&lt;h1 id=&#34;install-rust-analyzer&#34;&gt;Install rust analyzer&lt;/h1&gt;
+&lt;p&gt;In order to configure rust analyzer in vimspace, you must first install the
+analyzer in the console and then configure in the spacevim. Based on
+&lt;a class=&#34;link&#34; href=&#34;https://rust-analyzer.github.io/manual.html#installation&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Install&lt;/a&gt;, run command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;brew install rust-analyzer
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;configure-spacevim&#34;&gt;Configure Spacevim&lt;/h1&gt;
+&lt;p&gt;Configure spacevim, you can refer doc &lt;a class=&#34;link&#34; href=&#34;https://spacevim.org/use-vim-as-a-rust-ide/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;spacevim&lt;/a&gt;,
+then it can work very well.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
