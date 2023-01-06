@@ -460,6 +460,34 @@ set proxy in terminate.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hp curl cip.cc
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
         </item>
+        <item>
+        <title></title>
+        <link>https://wguansky.github.io/blog/post/rust_analyzer/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://wguansky.github.io/blog/post/rust_analyzer/</guid>
+        <description>&lt;hr&gt;
+&lt;p&gt;title: &amp;ldquo;Rust Analyzer&amp;rdquo;
+date: 2023-01-06T17:56:14+08:00
+tags:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Rust&lt;br&gt;
+categories:&lt;/li&gt;
+&lt;li&gt;Rust&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;install-rust-analyzer&#34;&gt;Install rust analyzer&lt;/h1&gt;
+&lt;p&gt;In order to configure rust analyzer in vimspace, you must first install the
+analyzer in the console and then configure in the spacevim. Based on
+&lt;a class=&#34;link&#34; href=&#34;https://rust-analyzer.github.io/manual.html#installation&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Install&lt;/a&gt;, run command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;brew install rust-analyzer
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;configure-spacevim&#34;&gt;Configure Spacevim&lt;/h1&gt;
+&lt;p&gt;Configure spacevim, you can refer doc &lt;a class=&#34;link&#34; href=&#34;https://spacevim.org/use-vim-as-a-rust-ide/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;spacevim&lt;/a&gt;,
+then it can work very well.&lt;/p&gt;
+</description>
+        </item>
         
     </channel>
 </rss>
