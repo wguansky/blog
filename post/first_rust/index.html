@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Install rust analyzer In order to configure rust analyzer in vimspace, you must first install the analyzer in the console and then configure in the spacevim. Based on Install, run command:
-brew install rust-analyzer Configure Spacevim Configure spacevim, you can refer doc spacevim, then it can work very well.'>
-<title>Rust Analyzer</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='This is my first time write a rust programm by myslef:
+use rand::Rng; use std::cmp::Ordering; use std::io; fn main() { println!(&amp;#34;Generate a secret number!&amp;#34;); let secret_number = rand::thread_rng().gen_range(1..100); loop { println!(&amp;#34;Please input a number!&amp;#34;); let mut input = String::new(); match io::stdin().read_line(&amp;amp;mut input) { Ok(_) =&amp;gt; {}, Err(_) =&amp;gt; { println!(&amp;#34;Type error, please type again!&amp;#34;); continue; }, } let num: u32 = match input.trim().parse() { Ok(num) =&amp;gt; num, Err(_) =&amp;gt; { println!'>
+<title>First_rust</title>
 
-<link rel='canonical' href='https://wguansky.github.io/blog/post/rust_analyzer/'>
+<link rel='canonical' href='https://wguansky.github.io/blog/post/first_rust/'>
 
-<link rel="stylesheet" href="/blog/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Rust Analyzer'>
-<meta property='og:description' content='Install rust analyzer In order to configure rust analyzer in vimspace, you must first install the analyzer in the console and then configure in the spacevim. Based on Install, run command:
-brew install rust-analyzer Configure Spacevim Configure spacevim, you can refer doc spacevim, then it can work very well.'>
-<meta property='og:url' content='https://wguansky.github.io/blog/post/rust_analyzer/'>
+<link rel="stylesheet" href="/blog/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='First_rust'>
+<meta property='og:description' content='This is my first time write a rust programm by myslef:
+use rand::Rng; use std::cmp::Ordering; use std::io; fn main() { println!(&amp;#34;Generate a secret number!&amp;#34;); let secret_number = rand::thread_rng().gen_range(1..100); loop { println!(&amp;#34;Please input a number!&amp;#34;); let mut input = String::new(); match io::stdin().read_line(&amp;amp;mut input) { Ok(_) =&amp;gt; {}, Err(_) =&amp;gt; { println!(&amp;#34;Type error, please type again!&amp;#34;); continue; }, } let num: u32 = match input.trim().parse() { Ok(num) =&amp;gt; num, Err(_) =&amp;gt; { println!'>
+<meta property='og:url' content='https://wguansky.github.io/blog/post/first_rust/'>
 <meta property='og:site_name' content='Wei Guan'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Rust' /><meta property='article:published_time' content='2023-01-06T17:56:14&#43;08:00'/><meta property='article:modified_time' content='2023-01-06T17:56:14&#43;08:00'/>
-<meta name="twitter:title" content="Rust Analyzer">
-<meta name="twitter:description" content="Install rust analyzer In order to configure rust analyzer in vimspace, you must first install the analyzer in the console and then configure in the spacevim. Based on Install, run command:
-brew install rust-analyzer Configure Spacevim Configure spacevim, you can refer doc spacevim, then it can work very well.">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Rust' /><meta property='article:published_time' content='2023-01-11T00:21:31&#43;08:00'/><meta property='article:modified_time' content='2023-01-11T00:21:31&#43;08:00'/>
+<meta name="twitter:title" content="First_rust">
+<meta name="twitter:description" content="This is my first time write a rust programm by myslef:
+use rand::Rng; use std::cmp::Ordering; use std::io; fn main() { println!(&amp;#34;Generate a secret number!&amp;#34;); let secret_number = rand::thread_rng().gen_range(1..100); loop { println!(&amp;#34;Please input a number!&amp;#34;); let mut input = String::new(); match io::stdin().read_line(&amp;amp;mut input) { Ok(_) =&amp;gt; {}, Err(_) =&amp;gt; { println!(&amp;#34;Type error, please type again!&amp;#34;); continue; }, } let num: u32 = match input.trim().parse() { Ok(num) =&amp;gt; num, Err(_) =&amp;gt; { println!">
     </head>
     <body class="
     article-page
@@ -203,7 +203,7 @@ brew install rust-analyzer Configure Spacevim Configure spacevim, you can refer 
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/blog/post/rust_analyzer/">Rust Analyzer</a>
+            <a href="/blog/post/first_rust/">First_rust</a>
         </h2>
     
         
@@ -225,7 +225,7 @@ brew install rust-analyzer Configure Spacevim Configure spacevim, you can refer 
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Jan 06, 2023</time>
+                <time class="article-time--published">Jan 11, 2023</time>
             </div>
         
 
@@ -255,17 +255,48 @@ brew install rust-analyzer Configure Spacevim Configure spacevim, you can refer 
     <section class="article-content">
     
     
-    <h1 id="install-rust-analyzer">Install rust analyzer</h1>
-<p>In order to configure rust analyzer in vimspace, you must first install the
-analyzer in the console and then configure in the spacevim. Based on
-<a class="link" href="https://rust-analyzer.github.io/manual.html#installation"  target="_blank" rel="noopener"
-    >Install</a>, run command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>brew install rust-analyzer
-</span></span></code></pre></div><h1 id="configure-spacevim">Configure Spacevim</h1>
-<p>Configure spacevim, you can refer doc <a class="link" href="https://spacevim.org/use-vim-as-a-rust-ide/"  target="_blank" rel="noopener"
-    >spacevim</a>,
-then it can work very well.</p>
-
+    <p>This is my first time write a rust programm by myslef:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Rust" data-lang="Rust"><span style="display:flex;"><span><span style="color:#66d9ef">use</span> rand::Rng;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">use</span> std::cmp::Ordering;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">use</span> std::io;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    println!(<span style="color:#e6db74">&#34;Generate a secret number!&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> secret_number <span style="color:#f92672">=</span> rand::thread_rng().gen_range(<span style="color:#ae81ff">1</span><span style="color:#f92672">..</span><span style="color:#ae81ff">100</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">loop</span> {
+</span></span><span style="display:flex;"><span>        println!(<span style="color:#e6db74">&#34;Please input a number!&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> input <span style="color:#f92672">=</span> String::new();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">match</span> io::stdin().read_line(<span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> input) {
+</span></span><span style="display:flex;"><span>            Ok(_) <span style="color:#f92672">=&gt;</span> {},
+</span></span><span style="display:flex;"><span>            Err(_) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>                println!(<span style="color:#e6db74">&#34;Type error, please type again!&#34;</span>);
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> num: <span style="color:#66d9ef">u32</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">match</span> input.trim().parse() {
+</span></span><span style="display:flex;"><span>            Ok(num) <span style="color:#f92672">=&gt;</span> num,
+</span></span><span style="display:flex;"><span>            Err(_) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>                println!(<span style="color:#e6db74">&#34;Please type a number!&#34;</span>);
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">match</span> num.cmp(<span style="color:#f92672">&amp;</span>secret_number) {
+</span></span><span style="display:flex;"><span>            Ordering::Less <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>                println!(<span style="color:#e6db74">&#34;You input a less number&#34;</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            Ordering::Greater <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>                println!(<span style="color:#e6db74">&#34;You input a greate number&#34;</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            Ordering::Equal <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>                println!(<span style="color:#e6db74">&#34;You are win&#34;</span>);
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
 </section>
 
 
@@ -295,12 +326,12 @@ then it can work very well.</p>
             
                 
 <article class="">
-    <a href="/blog/post/first_rust/">
+    <a href="/blog/post/rust_analyzer/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">First_rust</h2>
+            <h2 class="article-title">Rust Analyzer</h2>
         </div>
     </a>
 </article>
