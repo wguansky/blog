@@ -12,9 +12,13 @@
         <pubDate>Mon, 16 Jan 2023 13:43:44 +0800</pubDate>
         
         <guid>https://wguansky.github.io/blog/post/create_large_file/</guid>
-        <description>&lt;h1 id=&#34;create-large-file&#34;&gt;Create Large File&lt;/h1&gt;
+        <description>&lt;h2 id=&#34;create-large-file&#34;&gt;Create Large File&lt;/h2&gt;
 &lt;p&gt;Here is the command how to create a large file:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; fsutil file createnew file_name file_size
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;get-file-size&#34;&gt;Get file size&lt;/h2&gt;
+&lt;p&gt;The file size if byte not k byte&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; $v = Get-PSDrive C | Select-Object Free
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; $v.free
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
         </item>
         
