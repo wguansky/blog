@@ -6,7 +6,15 @@
         <description>Recent content in Tags on Wei Guan</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Wed, 11 Jan 2023 00:21:31 +0800</lastBuildDate><atom:link href="https://wguansky.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 16 Jan 2023 13:43:44 +0800</lastBuildDate><atom:link href="https://wguansky.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>PowerShell</title>
+        <link>https://wguansky.github.io/blog/tags/powershell/</link>
+        <pubDate>Mon, 16 Jan 2023 13:43:44 +0800</pubDate>
+        
+        <guid>https://wguansky.github.io/blog/tags/powershell/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Rust</title>
         <link>https://wguansky.github.io/blog/tags/rust/</link>
         <pubDate>Wed, 11 Jan 2023 00:21:31 +0800</pubDate>
