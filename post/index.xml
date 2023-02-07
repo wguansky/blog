@@ -6,7 +6,37 @@
         <description>Recent content in Posts on Wei Guan</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Wed, 01 Feb 2023 13:26:14 +0800</lastBuildDate><atom:link href="https://wguansky.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 07 Feb 2023 14:38:24 +0800</lastBuildDate><atom:link href="https://wguansky.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Proxy</title>
+        <link>https://wguansky.github.io/blog/post/proxy/</link>
+        <pubDate>Tue, 07 Feb 2023 14:38:24 +0800</pubDate>
+        
+        <guid>https://wguansky.github.io/blog/post/proxy/</guid>
+        <description>&lt;p&gt;Forward proxy:
+&lt;img src=&#34;https://wguansky.github.io/blog/blog/img/forward_proxy_flow.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;forward&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Reverse proxy:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://wguansky.github.io/blog/blog/img/reverse_proxy_flow.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;reverse&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Go_vs_rust</title>
         <link>https://wguansky.github.io/blog/post/go_vs_rust/</link>
         <pubDate>Wed, 01 Feb 2023 13:26:14 +0800</pubDate>
