@@ -16,10 +16,10 @@
 In this article, we have showed the following package to read file:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;os&lt;/li&gt;
-&lt;li&gt;ioutil
-If you want to read from buffer, you can use &lt;strong&gt;bufio&lt;/strong&gt; to read file or string. At the same
-time you also can use &lt;strong&gt;strings&lt;/strong&gt;, &lt;strong&gt;bytes&lt;/strong&gt; to read string and []byte&lt;/li&gt;
+&lt;li&gt;ioutil&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;If you want to read from buffer, you can use &lt;strong&gt;bufio&lt;/strong&gt; to read file or string. At the same
+time you also can use &lt;strong&gt;strings&lt;/strong&gt;, &lt;strong&gt;bytes&lt;/strong&gt; to read string and []byte&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; (
