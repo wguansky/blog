@@ -6,20 +6,20 @@
         <description>Recent content in Categories on Wei Guan</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Tue, 07 Feb 2023 14:38:24 +0800</lastBuildDate><atom:link href="https://wguansky.github.io/blog/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 09 Feb 2023 15:24:26 +0800</lastBuildDate><atom:link href="https://wguansky.github.io/blog/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Go</title>
+        <link>https://wguansky.github.io/blog/categories/go/</link>
+        <pubDate>Thu, 09 Feb 2023 15:24:26 +0800</pubDate>
+        
+        <guid>https://wguansky.github.io/blog/categories/go/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Network</title>
         <link>https://wguansky.github.io/blog/categories/network/</link>
         <pubDate>Tue, 07 Feb 2023 14:38:24 +0800</pubDate>
         
         <guid>https://wguansky.github.io/blog/categories/network/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Go</title>
-        <link>https://wguansky.github.io/blog/categories/go/</link>
-        <pubDate>Wed, 01 Feb 2023 13:26:14 +0800</pubDate>
-        
-        <guid>https://wguansky.github.io/blog/categories/go/</guid>
         <description></description>
         </item>
         <item>

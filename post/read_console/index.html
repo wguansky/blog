@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Define Go var x []float64 // Slice x:=65 // This will given a default type var x: []float64={1,2,3} var x [12]float14 // array Rust let x = 18 let mut x = 19 let x:i32=19 '>
-<title>Go_vs_rust</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Read information from console is very important, here is a simple way to read message from conosle
+fmt read package main import ( &amp;#34;fmt&amp;#34; ) func main() { var message string fmt.Print(&amp;#34;Please input the message:&amp;#34;) fmt.Scan(&amp;amp;message) } stdin read package main import ( &amp;#34;bufio&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;log&amp;#34; &amp;#34;os&amp;#34; ) func main() { reader := bufio.NewReader(os.Stdin) fmt.Print(&amp;#34;Input your name: &amp;#34;) name, err := reader.ReadString(&amp;#39;\n&amp;#39;) if err != nil { log.Fatal(err) } fmt.Println(name) } '>
+<title>Read_console</title>
 
-<link rel='canonical' href='https://wguansky.github.io/blog/post/go_vs_rust/'>
+<link rel='canonical' href='https://wguansky.github.io/blog/post/read_console/'>
 
-<link rel="stylesheet" href="/blog/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Go_vs_rust'>
-<meta property='og:description' content='Define Go var x []float64 // Slice x:=65 // This will given a default type var x: []float64={1,2,3} var x [12]float14 // array Rust let x = 18 let mut x = 19 let x:i32=19 '>
-<meta property='og:url' content='https://wguansky.github.io/blog/post/go_vs_rust/'>
+<link rel="stylesheet" href="/blog/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Read_console'>
+<meta property='og:description' content='Read information from console is very important, here is a simple way to read message from conosle
+fmt read package main import ( &amp;#34;fmt&amp;#34; ) func main() { var message string fmt.Print(&amp;#34;Please input the message:&amp;#34;) fmt.Scan(&amp;amp;message) } stdin read package main import ( &amp;#34;bufio&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;log&amp;#34; &amp;#34;os&amp;#34; ) func main() { reader := bufio.NewReader(os.Stdin) fmt.Print(&amp;#34;Input your name: &amp;#34;) name, err := reader.ReadString(&amp;#39;\n&amp;#39;) if err != nil { log.Fatal(err) } fmt.Println(name) } '>
+<meta property='og:url' content='https://wguansky.github.io/blog/post/read_console/'>
 <meta property='og:site_name' content='Wei Guan'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Go' /><meta property='article:tag' content='Rust' /><meta property='article:published_time' content='2023-02-01T13:26:14&#43;08:00'/><meta property='article:modified_time' content='2023-02-01T13:26:14&#43;08:00'/>
-<meta name="twitter:title" content="Go_vs_rust">
-<meta name="twitter:description" content="Define Go var x []float64 // Slice x:=65 // This will given a default type var x: []float64={1,2,3} var x [12]float14 // array Rust let x = 18 let mut x = 19 let x:i32=19 ">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Go' /><meta property='article:published_time' content='2023-02-09T15:24:26&#43;08:00'/><meta property='article:modified_time' content='2023-02-09T15:24:26&#43;08:00'/>
+<meta name="twitter:title" content="Read_console">
+<meta name="twitter:description" content="Read information from console is very important, here is a simple way to read message from conosle
+fmt read package main import ( &amp;#34;fmt&amp;#34; ) func main() { var message string fmt.Print(&amp;#34;Please input the message:&amp;#34;) fmt.Scan(&amp;amp;message) } stdin read package main import ( &amp;#34;bufio&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;log&amp;#34; &amp;#34;os&amp;#34; ) func main() { reader := bufio.NewReader(os.Stdin) fmt.Print(&amp;#34;Input your name: &amp;#34;) name, err := reader.ReadString(&amp;#39;\n&amp;#39;) if err != nil { log.Fatal(err) } fmt.Println(name) } ">
     </head>
     <body class="
     article-page
@@ -203,8 +206,8 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ul>
-    <li><a href="#go">Go</a></li>
-    <li><a href="#rust">Rust</a></li>
+    <li><a href="#fmt-read">fmt read</a></li>
+    <li><a href="#stdin-read">stdin read</a></li>
   </ul>
 </nav>
         </div>
@@ -227,16 +230,12 @@
                 Go
             </a>
         
-            <a href="/blog/categories/rust/" >
-                Rust
-            </a>
-        
     </header>
     
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/blog/post/go_vs_rust/">Go_vs_rust</a>
+            <a href="/blog/post/read_console/">Read_console</a>
         </h2>
     
         
@@ -258,7 +257,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Feb 01, 2023</time>
+                <time class="article-time--published">Feb 09, 2023</time>
             </div>
         
 
@@ -288,16 +287,39 @@
     <section class="article-content">
     
     
-    <h1 id="define">Define</h1>
-<h2 id="go">Go</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">x</span> []<span style="color:#66d9ef">float64</span> <span style="color:#75715e">// Slice
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">x</span><span style="color:#f92672">:=</span><span style="color:#ae81ff">65</span> <span style="color:#75715e">// This will given a default type
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">x</span>: []<span style="color:#66d9ef">float64</span>={<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>}
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">x</span> [<span style="color:#ae81ff">12</span>]<span style="color:#a6e22e">float14</span> <span style="color:#75715e">// array
-</span></span></span></code></pre></div><h2 id="rust">Rust</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> x <span style="color:#f92672">=</span> <span style="color:#ae81ff">18</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> x <span style="color:#f92672">=</span> <span style="color:#ae81ff">19</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> x:<span style="color:#66d9ef">i32</span><span style="color:#f92672">=</span><span style="color:#ae81ff">19</span>
+    <p>Read information from console is very important, here is a simple
+way to read message from conosle</p>
+<h2 id="fmt-read">fmt read</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">message</span> <span style="color:#66d9ef">string</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Print</span>(<span style="color:#e6db74">&#34;Please input the message:&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Scan</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">message</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="stdin-read">stdin read</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;bufio&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;log&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;os&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">reader</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">bufio</span>.<span style="color:#a6e22e">NewReader</span>(<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Stdin</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Print</span>(<span style="color:#e6db74">&#34;Input your name: &#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">reader</span>.<span style="color:#a6e22e">ReadString</span>(<span style="color:#e6db74">&#39;\n&#39;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">name</span>)
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div>
 </section>
 
@@ -307,8 +329,6 @@
     <section class="article-tags">
         
             <a href="/blog/tags/go/">Go</a>
-        
-            <a href="/blog/tags/rust/">Rust</a>
         
     </section>
 
@@ -330,38 +350,12 @@
             
                 
 <article class="">
-    <a href="/blog/post/read_console/">
+    <a href="/blog/post/go_vs_rust/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Read_console</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/blog/post/first_rust/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">First_rust</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/blog/post/rust_analyzer/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Rust Analyzer</h2>
+            <h2 class="article-title">Go_vs_rust</h2>
         </div>
     </a>
 </article>
