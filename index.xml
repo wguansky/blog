@@ -7,12 +7,20 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <lastBuildDate>Wed, 08 Feb 2023 23:25:31 +0800</lastBuildDate><atom:link href="https://wguansky.github.io/blog/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Go_read</title>
+        <title>Go Read File</title>
         <link>https://wguansky.github.io/blog/post/go_read/</link>
         <pubDate>Wed, 08 Feb 2023 23:25:31 +0800</pubDate>
         
         <guid>https://wguansky.github.io/blog/post/go_read/</guid>
-        <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
+        <description>&lt;p&gt;Read content from a file, string, or bytes are very important for any program language.
+In this article, we have showed the following package to read file:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;os&lt;/li&gt;
+&lt;li&gt;ioutil
+If you want to read from buffer, you can use &lt;strong&gt;bufio&lt;/strong&gt; to read file or string. At the same
+time you also can use &lt;strong&gt;strings&lt;/strong&gt;, &lt;strong&gt;bytes&lt;/strong&gt; to read string and []byte&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; (
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;bufio&amp;#34;&lt;/span&gt;
