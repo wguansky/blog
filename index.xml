@@ -6,7 +6,20 @@
         <description>Recent content on Wei Guan</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Fri, 03 Mar 2023 10:41:06 +0800</lastBuildDate><atom:link href="https://wguansky.github.io/blog/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 03 Mar 2023 11:50:47 +0800</lastBuildDate><atom:link href="https://wguansky.github.io/blog/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Terraform</title>
+        <link>https://wguansky.github.io/blog/post/terraform/</link>
+        <pubDate>Fri, 03 Mar 2023 11:50:47 +0800</pubDate>
+        
+        <guid>https://wguansky.github.io/blog/post/terraform/</guid>
+        <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
+&lt;p&gt;Terraform is a very useful tool which can help us to deploy resource on Cloud such as
+Aws, Azure, and Google, and it also support deploy k8s.&lt;/p&gt;
+&lt;h1 id=&#34;install&#34;&gt;Install&lt;/h1&gt;
+&lt;p&gt;Here is the document how to install terraform:&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Ansible</title>
         <link>https://wguansky.github.io/blog/post/ansible/</link>
         <pubDate>Fri, 03 Mar 2023 10:41:06 +0800</pubDate>
@@ -25,16 +38,7 @@ python, it support python2.7 and python3, here is the document how to
 &lt;h1 id=&#34;use-anaislbe&#34;&gt;Use Anaislbe&lt;/h1&gt;
 &lt;p&gt;Here is the document, which can be used to study how to learn ansible, it&amp;rsquo;s from &lt;a class=&#34;link&#34; href=&#34;https://kodekloud.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;KodeKloud&lt;/a&gt; and the
-&lt;img src=&#34;https://wguansky.github.io/blog/blog/files/kodekloud-ansible-certification-course-1-1.pdf&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;Materials&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;a class=&#34;link&#34; href=&#34;files/kodekloud-ansible-certification-course-1-1.pdf&#34; &gt;Materials&lt;/a&gt;&lt;/p&gt;
 </description>
         </item>
         <item>
