@@ -2,26 +2,23 @@
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='During work on project pl-k8s-kubernetes, I encounter an issue with the unit test, which can&amp;rsquo;t pass, here is the example shows what&amp;rsquo;s wrong with that.
-First create a source code with static method and named this file as aws_service_utils.py ~~python import boto3 import json
-class AwsSecretManager:
-@staticmethod def create_secret(secret_name, json_content): secretsmanager_client = boto3.client(&#39;secretsmanager&#39;) # Create a secret response = secretsmanager_client.create_secret( Name=secret_name, # Name of the secret SecretString=json.dumps(json_content) # Secret data as a JSON string ) return response @staticmethod def delete_secret(secret_id): secretsmanager_client = boto3.'>
+First create a source code with static method and named this file as aws_service_utils.py
+import boto3 import json class AwsSecretManager: @staticmethod def create_secret(secret_name, json_content): secretsmanager_client = boto3.client(&amp;#39;secretsmanager&amp;#39;) # Create a secret response = secretsmanager_client.create_secret( Name=secret_name, # Name of the secret SecretString=json.dumps(json_content) # Secret data as a JSON string ) return response @staticmethod def delete_secret(secret_id): secretsmanager_client = boto3.'>
 <title>Python package load</title>
 
 <link rel='canonical' href='https://wguansky.github.io/blog/post/package_load/'>
 
 <link rel="stylesheet" href="/blog/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Python package load'>
 <meta property='og:description' content='During work on project pl-k8s-kubernetes, I encounter an issue with the unit test, which can&amp;rsquo;t pass, here is the example shows what&amp;rsquo;s wrong with that.
-First create a source code with static method and named this file as aws_service_utils.py ~~python import boto3 import json
-class AwsSecretManager:
-@staticmethod def create_secret(secret_name, json_content): secretsmanager_client = boto3.client(&#39;secretsmanager&#39;) # Create a secret response = secretsmanager_client.create_secret( Name=secret_name, # Name of the secret SecretString=json.dumps(json_content) # Secret data as a JSON string ) return response @staticmethod def delete_secret(secret_id): secretsmanager_client = boto3.'>
+First create a source code with static method and named this file as aws_service_utils.py
+import boto3 import json class AwsSecretManager: @staticmethod def create_secret(secret_name, json_content): secretsmanager_client = boto3.client(&amp;#39;secretsmanager&amp;#39;) # Create a secret response = secretsmanager_client.create_secret( Name=secret_name, # Name of the secret SecretString=json.dumps(json_content) # Secret data as a JSON string ) return response @staticmethod def delete_secret(secret_id): secretsmanager_client = boto3.'>
 <meta property='og:url' content='https://wguansky.github.io/blog/post/package_load/'>
 <meta property='og:site_name' content='Wei Guan'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2023-05-14T10:11:13&#43;08:00'/><meta property='article:modified_time' content='2023-05-14T10:11:13&#43;08:00'/>
 <meta name="twitter:title" content="Python package load">
 <meta name="twitter:description" content="During work on project pl-k8s-kubernetes, I encounter an issue with the unit test, which can&amp;rsquo;t pass, here is the example shows what&amp;rsquo;s wrong with that.
-First create a source code with static method and named this file as aws_service_utils.py ~~python import boto3 import json
-class AwsSecretManager:
-@staticmethod def create_secret(secret_name, json_content): secretsmanager_client = boto3.client(&#39;secretsmanager&#39;) # Create a secret response = secretsmanager_client.create_secret( Name=secret_name, # Name of the secret SecretString=json.dumps(json_content) # Secret data as a JSON string ) return response @staticmethod def delete_secret(secret_id): secretsmanager_client = boto3.">
+First create a source code with static method and named this file as aws_service_utils.py
+import boto3 import json class AwsSecretManager: @staticmethod def create_secret(secret_name, json_content): secretsmanager_client = boto3.client(&amp;#39;secretsmanager&amp;#39;) # Create a secret response = secretsmanager_client.create_secret( Name=secret_name, # Name of the secret SecretString=json.dumps(json_content) # Secret data as a JSON string ) return response @staticmethod def delete_secret(secret_id): secretsmanager_client = boto3.">
     </head>
     <body class="
     article-page
@@ -246,7 +243,7 @@ class AwsSecretManager:
 
 
                 <time class="article-time--reading">
-                    3 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -265,112 +262,107 @@ class AwsSecretManager:
     >pl-k8s-kubernetes</a>,
 I encounter an issue with the unit test, which can&rsquo;t pass, here is the example shows what&rsquo;s  wrong
 with that.</p>
-<p>First create a source code with static method and named this file as aws_service_utils.py
-~~python
-import boto3
-import json</p>
-<p>class AwsSecretManager:</p>
-<pre><code>@staticmethod
-def create_secret(secret_name, json_content):
-    secretsmanager_client = boto3.client('secretsmanager')
-
-    # Create a secret
-    response = secretsmanager_client.create_secret(
-        Name=secret_name, # Name of the secret
-        SecretString=json.dumps(json_content) # Secret data as a JSON string
-    )
-
-    return response
-
-@staticmethod
-def delete_secret(secret_id):
-    secretsmanager_client = boto3.client('secretsmanager')
-
-    # Create a secret
-    response = secretsmanager_client.delete_secret(
-        Name=secret_name, # Name of the secret
-    )
-
-    return response
-</code></pre>
-<p>~~</p>
-<p>Second crate a method based on this method, backup_delete_secret.py
-~~python
-from aws_service_utils import AwsSecretManager as SM</p>
-<p>def operator(secret_name, json_content):
-print(&ldquo;Create secret&rdquo;)
-response = SM.create_secret(secret_name, json_content)
-if response:
-SM.delete_secret(secret_name)
-print(&lsquo;Delete secret success&rsquo;)
-else:
-print(&lsquo;Create secret fail, no need to delete secret&rsquo;)
-~~</p>
-<p>Third create unittest cases based on those two methods
-~~python
-from mock import patch, Mock
-import boto3
-import unittest
-import sys
-sys.path.append(&quot;.&quot;)
-from backup_delete_secret import operator
-import aws_service_utils</p>
-<p>class TestBackupAndDelete(unittest.TestCase):</p>
-<pre><code>@patch('aws_service_utils.AwsSecretManager.create_secret')
-@patch('aws_service_utils.AwsSecretManager.delete_secret')
-def test_operator_alway_work(self, mock_delete, mock_create):
-    operator(&quot;test&quot;, {
-        &quot;name&quot;:&quot;wguan&quot;
-    })
-    mock_create.return_value = {
-        &quot;arn&quot;:&quot;1234&quot;
-    }
-    self.assertEqual(mock_create.call_count, 1)
-    self.assertEqual(mock_delete.call_count, 1)
-
-def test_operator_related_order(self):
-    aws_service_utils.AwsSecretManager.create_secret = Mock(return_value={
-        &quot;arn&quot;: &quot;1234&quot;
-    })
-    aws_service_utils.AwsSecretManager.delete_secret = Mock()
-
-    operator(&quot;test&quot;, {
-        &quot;name&quot;:&quot;wguan&quot;
-    })
-
-    self.assertEqual(aws_service_utils.AwsSecretManager.create_secret.call_count, 1)
-    self.assertEqual(aws_service_utils.AwsSecretManager.delete_secret.call_count, 1)
-</code></pre>
-<p>~~
-In the above we have defined two similar methods, one is use patch to define a mock, it will
-release the mock object after the unit test finish, but if we define a function to mock object as follow
-~~python
-aws_service_utils.AwsSecretManager.create_secret = Mock(return_value={
-&ldquo;arn&rdquo;: &ldquo;1234&rdquo;
-})
-aws_service_utils.AwsSecretManager.delete_secret = Mock()
-~~
-it won&rsquo;t release this static method, you can verify use the following method to verify. If you write unit test
+<p>First create a source code with static method and named this file as aws_service_utils.py</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> boto3
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> json
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AwsSecretManager</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@staticmethod</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">create_secret</span>(secret_name, json_content):
+</span></span><span style="display:flex;"><span>        secretsmanager_client <span style="color:#f92672">=</span> boto3<span style="color:#f92672">.</span>client(<span style="color:#e6db74">&#39;secretsmanager&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Create a secret</span>
+</span></span><span style="display:flex;"><span>        response <span style="color:#f92672">=</span> secretsmanager_client<span style="color:#f92672">.</span>create_secret(
+</span></span><span style="display:flex;"><span>            Name<span style="color:#f92672">=</span>secret_name, <span style="color:#75715e"># Name of the secret</span>
+</span></span><span style="display:flex;"><span>            SecretString<span style="color:#f92672">=</span>json<span style="color:#f92672">.</span>dumps(json_content) <span style="color:#75715e"># Secret data as a JSON string</span>
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> response
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@staticmethod</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">delete_secret</span>(secret_id):
+</span></span><span style="display:flex;"><span>        secretsmanager_client <span style="color:#f92672">=</span> boto3<span style="color:#f92672">.</span>client(<span style="color:#e6db74">&#39;secretsmanager&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Create a secret</span>
+</span></span><span style="display:flex;"><span>        response <span style="color:#f92672">=</span> secretsmanager_client<span style="color:#f92672">.</span>delete_secret(
+</span></span><span style="display:flex;"><span>            Name<span style="color:#f92672">=</span>secret_name, <span style="color:#75715e"># Name of the secret</span>
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> response
+</span></span></code></pre></div><p>Second crate a method based on this method, backup_delete_secret.py</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> aws_service_utils <span style="color:#f92672">import</span> AwsSecretManager <span style="color:#66d9ef">as</span> SM
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">operator</span>(secret_name, json_content):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Create secret&#34;</span>)
+</span></span><span style="display:flex;"><span>    response <span style="color:#f92672">=</span> SM<span style="color:#f92672">.</span>create_secret(secret_name, json_content)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> response:
+</span></span><span style="display:flex;"><span>        SM<span style="color:#f92672">.</span>delete_secret(secret_name)
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#39;Delete secret success&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#39;Create secret fail, no need to delete secret&#39;</span>)
+</span></span></code></pre></div><p>Third create unittest cases based on those two methods</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> mock <span style="color:#f92672">import</span> patch, Mock
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> boto3
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> unittest
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> sys
+</span></span><span style="display:flex;"><span>sys<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>append(<span style="color:#e6db74">&#34;.&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> backup_delete_secret <span style="color:#f92672">import</span> operator
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> aws_service_utils
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestBackupAndDelete</span>(unittest<span style="color:#f92672">.</span>TestCase):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@patch</span>(<span style="color:#e6db74">&#39;aws_service_utils.AwsSecretManager.create_secret&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@patch</span>(<span style="color:#e6db74">&#39;aws_service_utils.AwsSecretManager.delete_secret&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_operator_alway_work</span>(self, mock_delete, mock_create):
+</span></span><span style="display:flex;"><span>        operator(<span style="color:#e6db74">&#34;test&#34;</span>, {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;name&#34;</span>:<span style="color:#e6db74">&#34;wguan&#34;</span>
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>        mock_create<span style="color:#f92672">.</span>return_value <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;arn&#34;</span>:<span style="color:#e6db74">&#34;1234&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>assertEqual(mock_create<span style="color:#f92672">.</span>call_count, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>assertEqual(mock_delete<span style="color:#f92672">.</span>call_count, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_operator_related_order</span>(self):
+</span></span><span style="display:flex;"><span>        aws_service_utils<span style="color:#f92672">.</span>AwsSecretManager<span style="color:#f92672">.</span>create_secret <span style="color:#f92672">=</span> Mock(return_value<span style="color:#f92672">=</span>{
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;arn&#34;</span>: <span style="color:#e6db74">&#34;1234&#34;</span>
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>        aws_service_utils<span style="color:#f92672">.</span>AwsSecretManager<span style="color:#f92672">.</span>delete_secret <span style="color:#f92672">=</span> Mock()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        operator(<span style="color:#e6db74">&#34;test&#34;</span>, {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;name&#34;</span>:<span style="color:#e6db74">&#34;wguan&#34;</span>
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>assertEqual(aws_service_utils<span style="color:#f92672">.</span>AwsSecretManager<span style="color:#f92672">.</span>create_secret<span style="color:#f92672">.</span>call_count, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>assertEqual(aws_service_utils<span style="color:#f92672">.</span>AwsSecretManager<span style="color:#f92672">.</span>delete_secret<span style="color:#f92672">.</span>call_count, <span style="color:#ae81ff">1</span>)
+</span></span></code></pre></div><p>In the above we have defined two similar methods, one is use patch to define a mock, it will
+release the mock object after the unit test finish, but if we define a function to mock object as follow</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>        aws_service_utils<span style="color:#f92672">.</span>AwsSecretManager<span style="color:#f92672">.</span>create_secret <span style="color:#f92672">=</span> Mock(return_value<span style="color:#f92672">=</span>{
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;arn&#34;</span>: <span style="color:#e6db74">&#34;1234&#34;</span>
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>        aws_service_utils<span style="color:#f92672">.</span>AwsSecretManager<span style="color:#f92672">.</span>delete_secret <span style="color:#f92672">=</span> Mock()
+</span></span></code></pre></div><p>it won&rsquo;t release this static method, you can verify use the following method to verify. If you write unit test
 with patch method, the following will seccuess, but otherwise the following method may fail. But it may also
 success, this is relate another question, how does nose2 load unittest cases. This can be verify by yourself.
 If you want to let the case work well, there is another metod to fix, reload the package.</p>
-<p>~~python
-import boto3
-import unittest
-import sys
-sys.path.append(&quot;.&quot;)
-from moto import mock_secretsmanager
-from aws_service_utils import AwsSecretManager as SM</p>
-<p>class TestAwsSecretManager(unittest.TestCase):</p>
-<pre><code>@mock_secretsmanager
-def test_creat_secret(self):
-    response = SM.create_secret(&quot;test&quot;, {
-        &quot;name&quot;: &quot;wguan&quot;
-    })
-    self.assertEqual(response['ResponseMetadata']['HTTPStatusCode'], 200)
-</code></pre>
-<p>~~</p>
-<p>Summary:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> boto3
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> unittest
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> sys
+</span></span><span style="display:flex;"><span>sys<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>append(<span style="color:#e6db74">&#34;.&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> moto <span style="color:#f92672">import</span> mock_secretsmanager
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> aws_service_utils <span style="color:#f92672">import</span> AwsSecretManager <span style="color:#66d9ef">as</span> SM
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestAwsSecretManager</span>(unittest<span style="color:#f92672">.</span>TestCase):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@mock_secretsmanager</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_creat_secret</span>(self):
+</span></span><span style="display:flex;"><span>        response <span style="color:#f92672">=</span> SM<span style="color:#f92672">.</span>create_secret(<span style="color:#e6db74">&#34;test&#34;</span>, {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;wguan&#34;</span>
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>assertEqual(response[<span style="color:#e6db74">&#39;ResponseMetadata&#39;</span>][<span style="color:#e6db74">&#39;HTTPStatusCode&#39;</span>], <span style="color:#ae81ff">200</span>)
+</span></span></code></pre></div><p>Summary:</p>
 <ol>
 <li>For static method, never assign Mock object to static function, it will effect all the unit test after this case has been called</li>
 <li>The order of nose2 load unit test cases is related the name of case name</li>

@@ -16,112 +16,107 @@
     &gt;pl-k8s-kubernetes&lt;/a&gt;,
 I encounter an issue with the unit test, which can&amp;rsquo;t pass, here is the example shows what&amp;rsquo;s  wrong
 with that.&lt;/p&gt;
-&lt;p&gt;First create a source code with static method and named this file as aws_service_utils.py
-~~python
-import boto3
-import json&lt;/p&gt;
-&lt;p&gt;class AwsSecretManager:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@staticmethod
-def create_secret(secret_name, json_content):
-    secretsmanager_client = boto3.client(&#39;secretsmanager&#39;)
-
-    # Create a secret
-    response = secretsmanager_client.create_secret(
-        Name=secret_name, # Name of the secret
-        SecretString=json.dumps(json_content) # Secret data as a JSON string
-    )
-
-    return response
-
-@staticmethod
-def delete_secret(secret_id):
-    secretsmanager_client = boto3.client(&#39;secretsmanager&#39;)
-
-    # Create a secret
-    response = secretsmanager_client.delete_secret(
-        Name=secret_name, # Name of the secret
-    )
-
-    return response
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;~~&lt;/p&gt;
-&lt;p&gt;Second crate a method based on this method, backup_delete_secret.py
-~~python
-from aws_service_utils import AwsSecretManager as SM&lt;/p&gt;
-&lt;p&gt;def operator(secret_name, json_content):
-print(&amp;ldquo;Create secret&amp;rdquo;)
-response = SM.create_secret(secret_name, json_content)
-if response:
-SM.delete_secret(secret_name)
-print(&amp;lsquo;Delete secret success&amp;rsquo;)
-else:
-print(&amp;lsquo;Create secret fail, no need to delete secret&amp;rsquo;)
-~~&lt;/p&gt;
-&lt;p&gt;Third create unittest cases based on those two methods
-~~python
-from mock import patch, Mock
-import boto3
-import unittest
-import sys
-sys.path.append(&amp;quot;.&amp;quot;)
-from backup_delete_secret import operator
-import aws_service_utils&lt;/p&gt;
-&lt;p&gt;class TestBackupAndDelete(unittest.TestCase):&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@patch(&#39;aws_service_utils.AwsSecretManager.create_secret&#39;)
-@patch(&#39;aws_service_utils.AwsSecretManager.delete_secret&#39;)
-def test_operator_alway_work(self, mock_delete, mock_create):
-    operator(&amp;quot;test&amp;quot;, {
-        &amp;quot;name&amp;quot;:&amp;quot;wguan&amp;quot;
-    })
-    mock_create.return_value = {
-        &amp;quot;arn&amp;quot;:&amp;quot;1234&amp;quot;
-    }
-    self.assertEqual(mock_create.call_count, 1)
-    self.assertEqual(mock_delete.call_count, 1)
-
-def test_operator_related_order(self):
-    aws_service_utils.AwsSecretManager.create_secret = Mock(return_value={
-        &amp;quot;arn&amp;quot;: &amp;quot;1234&amp;quot;
-    })
-    aws_service_utils.AwsSecretManager.delete_secret = Mock()
-
-    operator(&amp;quot;test&amp;quot;, {
-        &amp;quot;name&amp;quot;:&amp;quot;wguan&amp;quot;
-    })
-
-    self.assertEqual(aws_service_utils.AwsSecretManager.create_secret.call_count, 1)
-    self.assertEqual(aws_service_utils.AwsSecretManager.delete_secret.call_count, 1)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;~~
-In the above we have defined two similar methods, one is use patch to define a mock, it will
-release the mock object after the unit test finish, but if we define a function to mock object as follow
-~~python
-aws_service_utils.AwsSecretManager.create_secret = Mock(return_value={
-&amp;ldquo;arn&amp;rdquo;: &amp;ldquo;1234&amp;rdquo;
-})
-aws_service_utils.AwsSecretManager.delete_secret = Mock()
-~~
-it won&amp;rsquo;t release this static method, you can verify use the following method to verify. If you write unit test
+&lt;p&gt;First create a source code with static method and named this file as aws_service_utils.py&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; boto3
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; json
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;AwsSecretManager&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;@staticmethod&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;create_secret&lt;/span&gt;(secret_name, json_content):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        secretsmanager_client &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; boto3&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;client(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;secretsmanager&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;# Create a secret&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        response &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; secretsmanager_client&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;create_secret(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            Name&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;secret_name, &lt;span style=&#34;color:#75715e&#34;&gt;# Name of the secret&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            SecretString&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;json&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;dumps(json_content) &lt;span style=&#34;color:#75715e&#34;&gt;# Secret data as a JSON string&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; response
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;@staticmethod&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;delete_secret&lt;/span&gt;(secret_id):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        secretsmanager_client &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; boto3&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;client(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;secretsmanager&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;# Create a secret&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        response &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; secretsmanager_client&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;delete_secret(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            Name&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;secret_name, &lt;span style=&#34;color:#75715e&#34;&gt;# Name of the secret&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; response
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Second crate a method based on this method, backup_delete_secret.py&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; aws_service_utils &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; AwsSecretManager &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; SM
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;operator&lt;/span&gt;(secret_name, json_content):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Create secret&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    response &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; SM&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;create_secret(secret_name, json_content)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; response:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        SM&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;delete_secret(secret_name)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Delete secret success&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Create secret fail, no need to delete secret&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Third create unittest cases based on those two methods&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; mock &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; patch, Mock
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; boto3
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; unittest
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; sys
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sys&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;append(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; backup_delete_secret &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; operator
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; aws_service_utils
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;TestBackupAndDelete&lt;/span&gt;(unittest&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;TestCase):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;@patch&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;aws_service_utils.AwsSecretManager.create_secret&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;@patch&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;aws_service_utils.AwsSecretManager.delete_secret&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;test_operator_alway_work&lt;/span&gt;(self, mock_delete, mock_create):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        operator(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;test&amp;#34;&lt;/span&gt;, {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;wguan&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        })
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        mock_create&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;return_value &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;arn&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;1234&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;assertEqual(mock_create&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;call_count, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;assertEqual(mock_delete&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;call_count, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;test_operator_related_order&lt;/span&gt;(self):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        aws_service_utils&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;AwsSecretManager&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;create_secret &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Mock(return_value&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;arn&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;1234&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        })
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        aws_service_utils&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;AwsSecretManager&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;delete_secret &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Mock()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        operator(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;test&amp;#34;&lt;/span&gt;, {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;wguan&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        })
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;assertEqual(aws_service_utils&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;AwsSecretManager&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;create_secret&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;call_count, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;assertEqual(aws_service_utils&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;AwsSecretManager&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;delete_secret&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;call_count, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In the above we have defined two similar methods, one is use patch to define a mock, it will
+release the mock object after the unit test finish, but if we define a function to mock object as follow&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        aws_service_utils&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;AwsSecretManager&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;create_secret &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Mock(return_value&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;arn&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;1234&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        })
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        aws_service_utils&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;AwsSecretManager&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;delete_secret &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Mock()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;it won&amp;rsquo;t release this static method, you can verify use the following method to verify. If you write unit test
 with patch method, the following will seccuess, but otherwise the following method may fail. But it may also
 success, this is relate another question, how does nose2 load unittest cases. This can be verify by yourself.
 If you want to let the case work well, there is another metod to fix, reload the package.&lt;/p&gt;
-&lt;p&gt;~~python
-import boto3
-import unittest
-import sys
-sys.path.append(&amp;quot;.&amp;quot;)
-from moto import mock_secretsmanager
-from aws_service_utils import AwsSecretManager as SM&lt;/p&gt;
-&lt;p&gt;class TestAwsSecretManager(unittest.TestCase):&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@mock_secretsmanager
-def test_creat_secret(self):
-    response = SM.create_secret(&amp;quot;test&amp;quot;, {
-        &amp;quot;name&amp;quot;: &amp;quot;wguan&amp;quot;
-    })
-    self.assertEqual(response[&#39;ResponseMetadata&#39;][&#39;HTTPStatusCode&#39;], 200)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;~~&lt;/p&gt;
-&lt;p&gt;Summary:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; boto3
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; unittest
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; sys
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sys&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;append(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; moto &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; mock_secretsmanager
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; aws_service_utils &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; AwsSecretManager &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; SM
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;TestAwsSecretManager&lt;/span&gt;(unittest&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;TestCase):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;@mock_secretsmanager&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;test_creat_secret&lt;/span&gt;(self):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        response &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; SM&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;create_secret(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;test&amp;#34;&lt;/span&gt;, {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;wguan&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        })
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;assertEqual(response[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;ResponseMetadata&amp;#39;&lt;/span&gt;][&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;HTTPStatusCode&amp;#39;&lt;/span&gt;], &lt;span style=&#34;color:#ae81ff&#34;&gt;200&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Summary:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;For static method, never assign Mock object to static function, it will effect all the unit test after this case has been called&lt;/li&gt;
 &lt;li&gt;The order of nose2 load unit test cases is related the name of case name&lt;/li&gt;
