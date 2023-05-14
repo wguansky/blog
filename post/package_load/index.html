@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Unit test is very import to improve the code robust. Each time, when we do some changes or code refactor, we need to verify our code can work well. And those errors can be exposed in develop process not in the test process.
-Tools For pythhon, we usually use two type of tools to run python test nose2 and pytest, and they both based on unittest. In my mind, if you want to test or debug only one unit case, I recommand to use pytest.'>
-<title>Python unit test</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='During work on project pl-k8s-kubernetes[https://github.com/mstr-kiai/pl-k8s-infrastructure], I encounter an issue with the unit test, which can&amp;rsquo;t pass, here is the example shows what&amp;rsquo;s wrong with that.
+First create a source code with static method and named this file as aws_service_utils.py ~~ python import boto3 import json
+class AwsSecretManager:
+@staticmethod def create_secret(secret_name, json_content): secretsmanager_client = boto3.client(&#39;secretsmanager&#39;) # Create a secret response = secretsmanager_client.create_secret( Name=secret_name, # Name of the secret SecretString=json.dumps(json_content) # Secret data as a JSON string ) return response @staticmethod def delete_secret(secret_id): secretsmanager_client = boto3.'>
+<title>Python package load</title>
 
-<link rel='canonical' href='https://wguansky.github.io/blog/post/python_test/'>
+<link rel='canonical' href='https://wguansky.github.io/blog/post/package_load/'>
 
-<link rel="stylesheet" href="/blog/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Python unit test'>
-<meta property='og:description' content='Unit test is very import to improve the code robust. Each time, when we do some changes or code refactor, we need to verify our code can work well. And those errors can be exposed in develop process not in the test process.
-Tools For pythhon, we usually use two type of tools to run python test nose2 and pytest, and they both based on unittest. In my mind, if you want to test or debug only one unit case, I recommand to use pytest.'>
-<meta property='og:url' content='https://wguansky.github.io/blog/post/python_test/'>
+<link rel="stylesheet" href="/blog/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Python package load'>
+<meta property='og:description' content='During work on project pl-k8s-kubernetes[https://github.com/mstr-kiai/pl-k8s-infrastructure], I encounter an issue with the unit test, which can&amp;rsquo;t pass, here is the example shows what&amp;rsquo;s wrong with that.
+First create a source code with static method and named this file as aws_service_utils.py ~~ python import boto3 import json
+class AwsSecretManager:
+@staticmethod def create_secret(secret_name, json_content): secretsmanager_client = boto3.client(&#39;secretsmanager&#39;) # Create a secret response = secretsmanager_client.create_secret( Name=secret_name, # Name of the secret SecretString=json.dumps(json_content) # Secret data as a JSON string ) return response @staticmethod def delete_secret(secret_id): secretsmanager_client = boto3.'>
+<meta property='og:url' content='https://wguansky.github.io/blog/post/package_load/'>
 <meta property='og:site_name' content='Wei Guan'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Python' /><meta property='article:tag' content='Test' /><meta property='article:published_time' content='2022-12-29T13:35:43&#43;08:00'/><meta property='article:modified_time' content='2022-12-29T13:35:43&#43;08:00'/>
-<meta name="twitter:title" content="Python unit test">
-<meta name="twitter:description" content="Unit test is very import to improve the code robust. Each time, when we do some changes or code refactor, we need to verify our code can work well. And those errors can be exposed in develop process not in the test process.
-Tools For pythhon, we usually use two type of tools to run python test nose2 and pytest, and they both based on unittest. In my mind, if you want to test or debug only one unit case, I recommand to use pytest.">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2023-05-14T10:11:13&#43;08:00'/><meta property='article:modified_time' content='2023-05-14T10:11:13&#43;08:00'/>
+<meta name="twitter:title" content="Python package load">
+<meta name="twitter:description" content="During work on project pl-k8s-kubernetes[https://github.com/mstr-kiai/pl-k8s-infrastructure], I encounter an issue with the unit test, which can&amp;rsquo;t pass, here is the example shows what&amp;rsquo;s wrong with that.
+First create a source code with static method and named this file as aws_service_utils.py ~~ python import boto3 import json
+class AwsSecretManager:
+@staticmethod def create_secret(secret_name, json_content): secretsmanager_client = boto3.client(&#39;secretsmanager&#39;) # Create a secret response = secretsmanager_client.create_secret( Name=secret_name, # Name of the secret SecretString=json.dumps(json_content) # Secret data as a JSON string ) return response @staticmethod def delete_secret(secret_id): secretsmanager_client = boto3.">
     </head>
     <body class="
     article-page
@@ -184,39 +190,7 @@ Tools For pythhon, we usually use two type of tools to run python test nose2 and
     </ol>
 </aside>
 
-    <aside class="sidebar right-sidebar sticky">
-        
-            
-                
-    <section class="widget archives">
-        <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <line x1="5" y1="9" x2="19" y2="9" />
-  <line x1="5" y1="15" x2="19" y2="15" />
-  <line x1="11" y1="4" x2="7" y2="20" />
-  <line x1="17" y1="4" x2="13" y2="20" />
-</svg>
-
-
-
-        </div>
-        <h2 class="widget-title section-title">Table of contents</h2>
-        
-        <div class="widget--toc">
-            <nav id="TableOfContents">
-  <ul>
-    <li><a href="#tools">Tools</a></li>
-    <li><a href="#mock">Mock</a></li>
-  </ul>
-</nav>
-        </div>
-    </section>
-
-            
-        
-    </aside>
-
+    
 
             <main class="main full-width">
     <article class="main-article">
@@ -235,7 +209,7 @@ Tools For pythhon, we usually use two type of tools to run python test nose2 and
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/blog/post/python_test/">Python unit test</a>
+            <a href="/blog/post/package_load/">Python package load</a>
         </h2>
     
         
@@ -257,7 +231,7 @@ Tools For pythhon, we usually use two type of tools to run python test nose2 and
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Dec 29, 2022</time>
+                <time class="article-time--published">May 14, 2023</time>
             </div>
         
 
@@ -272,7 +246,7 @@ Tools For pythhon, we usually use two type of tools to run python test nose2 and
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -287,33 +261,119 @@ Tools For pythhon, we usually use two type of tools to run python test nose2 and
     <section class="article-content">
     
     
-    <p>Unit test is very import to improve the code robust. Each time,
-when we do some changes or code refactor, we need to verify our code can work
-well. And those errors can be exposed in develop process not in the test
-process.</p>
-<h2 id="tools">Tools</h2>
-<p>For pythhon, we usually use two type of tools to run python test
-<a class="link" href="https://docs.nose2.io/en/latest/"  target="_blank" rel="noopener"
-    >nose2</a> and <a class="link" href="https://docs.pytest.org/en/7.2.x/"  target="_blank" rel="noopener"
-    >pytest</a>,
-and they both based on <strong>unittest</strong>. In my mind, if you want to test or debug
-only one unit case, I recommand to use pytest.</p>
-<h2 id="mock">Mock</h2>
-<p>Mock is very useful method to write unit test, and there is a very important
-and confuse about mock.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#a6e22e">@patch.object</span>(Version, <span style="color:#e6db74">&#39;validate_version&#39;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@patch.object</span>(Version, <span style="color:#e6db74">&#39;get_version&#39;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@patch</span>(<span style="color:#e6db74">&#39;pre_validation.linux.verify_linux_version.get_version_from_install_xml&#39;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_verify_mstr_linux_version</span>(self, m_install_xml, m_get_version, m_validate_version):
-</span></span><span style="display:flex;"><span>        m_install_xml<span style="color:#f92672">.</span>return_value <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#34;0.107.5044&#34;</span>, <span style="color:#e6db74">&#34;false&#34;</span>)
-</span></span><span style="display:flex;"><span>        m_get_version<span style="color:#f92672">.</span>return_value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;version_short&#34;</span>, <span style="color:#e6db74">&#34;version_build&#34;</span>
-</span></span><span style="display:flex;"><span>        m_validate_version<span style="color:#f92672">.</span>return_value <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
-</span></span><span style="display:flex;"><span>        return_result <span style="color:#f92672">=</span> verify_linux_version()
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>assertTrue(return_result)
-</span></span></code></pre></div><ol>
-<li>Here you can see the order in from right to left not from left to right.</li>
-<li>For install_xml, you can see it use the absoulte path and this function
-is call in that file, not the function define in that file.</li>
+    <p>During work on project pl-k8s-kubernetes[https://github.com/mstr-kiai/pl-k8s-infrastructure],
+I encounter an issue with the unit test, which can&rsquo;t pass, here is the example shows what&rsquo;s  wrong
+with that.</p>
+<p>First create a source code with static method and named this file as aws_service_utils.py
+~~ python
+import boto3
+import json</p>
+<p>class AwsSecretManager:</p>
+<pre><code>@staticmethod
+def create_secret(secret_name, json_content):
+    secretsmanager_client = boto3.client('secretsmanager')
+
+    # Create a secret
+    response = secretsmanager_client.create_secret(
+        Name=secret_name, # Name of the secret
+        SecretString=json.dumps(json_content) # Secret data as a JSON string
+    )
+
+    return response
+
+@staticmethod
+def delete_secret(secret_id):
+    secretsmanager_client = boto3.client('secretsmanager')
+
+    # Create a secret
+    response = secretsmanager_client.delete_secret(
+        Name=secret_name, # Name of the secret
+    )
+
+    return response
+</code></pre>
+<p>~~</p>
+<p>Second crate a method based on this method, backup_delete_secret.py
+~~ python
+from aws_service_utils import AwsSecretManager as SM</p>
+<p>def operator(secret_name, json_content):
+print(&ldquo;Create secret&rdquo;)
+response = SM.create_secret(secret_name, json_content)
+if response:
+SM.delete_secret(secret_name)
+print(&lsquo;Delete secret success&rsquo;)
+else:
+print(&lsquo;Create secret fail, no need to delete secret&rsquo;)
+~~</p>
+<p>Third create unittest cases based on those two methods
+~~ python
+from mock import patch, Mock
+import boto3
+import unittest
+import sys
+sys.path.append(&quot;.&quot;)
+from backup_delete_secret import operator
+import aws_service_utils</p>
+<p>class TestBackupAndDelete(unittest.TestCase):</p>
+<pre><code>@patch('aws_service_utils.AwsSecretManager.create_secret')
+@patch('aws_service_utils.AwsSecretManager.delete_secret')
+def test_operator_alway_work(self, mock_delete, mock_create):
+    operator(&quot;test&quot;, {
+        &quot;name&quot;:&quot;wguan&quot;
+    })
+    mock_create.return_value = {
+        &quot;arn&quot;:&quot;1234&quot;
+    }
+    self.assertEqual(mock_create.call_count, 1)
+    self.assertEqual(mock_delete.call_count, 1)
+
+def test_operator_related_order(self):
+    aws_service_utils.AwsSecretManager.create_secret = Mock(return_value={
+        &quot;arn&quot;: &quot;1234&quot;
+    })
+    aws_service_utils.AwsSecretManager.delete_secret = Mock()
+
+    operator(&quot;test&quot;, {
+        &quot;name&quot;:&quot;wguan&quot;
+    })
+
+    self.assertEqual(aws_service_utils.AwsSecretManager.create_secret.call_count, 1)
+    self.assertEqual(aws_service_utils.AwsSecretManager.delete_secret.call_count, 1)
+</code></pre>
+<p>~~
+In the above we have defined two similar methods, one is use patch to define a mock, it will
+release the mock object after the unit test finish, but if we define a function to mock object as follow
+~~python
+aws_service_utils.AwsSecretManager.create_secret = Mock(return_value={
+&ldquo;arn&rdquo;: &ldquo;1234&rdquo;
+})
+aws_service_utils.AwsSecretManager.delete_secret = Mock()
+~~
+it won&rsquo;t release this static method, you can verify use the following method to verify. If you write unit test
+with patch method, the following will seccuess, but otherwise the following method may fail. But it may also
+success, this is relate another question, how does nose2 load unittest cases. This can be verify by yourself.
+If you want to let the case work well, there is another metod to fix, reload the package.</p>
+<p>~~ python
+import boto3
+import unittest
+import sys
+sys.path.append(&quot;.&quot;)
+from moto import mock_secretsmanager
+from aws_service_utils import AwsSecretManager as SM</p>
+<p>class TestAwsSecretManager(unittest.TestCase):</p>
+<pre><code>@mock_secretsmanager
+def test_creat_secret(self):
+    response = SM.create_secret(&quot;test&quot;, {
+        &quot;name&quot;: &quot;wguan&quot;
+    })
+    self.assertEqual(response['ResponseMetadata']['HTTPStatusCode'], 200)
+</code></pre>
+<p>~~</p>
+<p>Summary:</p>
+<ol>
+<li>For static method, never assign Mock object to static function, it will effect all the unit test after this case has been called</li>
+<li>The order of nose2 load unit test cases is related the name of case name</li>
+<li>Import AwsSecretManager in the last file, but it doesn&rsquo;t import again, the root cause is python only import once, so there is anthor method to fix it, just use importlib.reload(package)</li>
 </ol>
 
 </section>
@@ -324,8 +384,6 @@ is call in that file, not the function define in that file.</li>
     <section class="article-tags">
         
             <a href="/blog/tags/python/">Python</a>
-        
-            <a href="/blog/tags/test/">Test</a>
         
     </section>
 
@@ -347,12 +405,12 @@ is call in that file, not the function define in that file.</li>
             
                 
 <article class="">
-    <a href="/blog/post/package_load/">
+    <a href="/blog/post/metadata_class/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Python package load</h2>
+            <h2 class="article-title">Metadata Class</h2>
         </div>
     </a>
 </article>
@@ -360,12 +418,12 @@ is call in that file, not the function define in that file.</li>
             
                 
 <article class="">
-    <a href="/blog/post/metadata_class/">
+    <a href="/blog/post/python_test/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Metadata Class</h2>
+            <h2 class="article-title">Python unit test</h2>
         </div>
     </a>
 </article>

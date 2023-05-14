@@ -6,7 +6,129 @@
         <description>Recent content in Python on Wei Guan</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Fri, 30 Dec 2022 04:37:23 +0800</lastBuildDate><atom:link href="https://wguansky.github.io/blog/categories/python/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 14 May 2023 10:11:13 +0800</lastBuildDate><atom:link href="https://wguansky.github.io/blog/categories/python/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Python package load</title>
+        <link>https://wguansky.github.io/blog/post/package_load/</link>
+        <pubDate>Sun, 14 May 2023 10:11:13 +0800</pubDate>
+        
+        <guid>https://wguansky.github.io/blog/post/package_load/</guid>
+        <description>&lt;p&gt;During work on project pl-k8s-kubernetes[https://github.com/mstr-kiai/pl-k8s-infrastructure],
+I encounter an issue with the unit test, which can&amp;rsquo;t pass, here is the example shows what&amp;rsquo;s  wrong
+with that.&lt;/p&gt;
+&lt;p&gt;First create a source code with static method and named this file as aws_service_utils.py
+~~ python
+import boto3
+import json&lt;/p&gt;
+&lt;p&gt;class AwsSecretManager:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@staticmethod
+def create_secret(secret_name, json_content):
+    secretsmanager_client = boto3.client(&#39;secretsmanager&#39;)
+
+    # Create a secret
+    response = secretsmanager_client.create_secret(
+        Name=secret_name, # Name of the secret
+        SecretString=json.dumps(json_content) # Secret data as a JSON string
+    )
+
+    return response
+
+@staticmethod
+def delete_secret(secret_id):
+    secretsmanager_client = boto3.client(&#39;secretsmanager&#39;)
+
+    # Create a secret
+    response = secretsmanager_client.delete_secret(
+        Name=secret_name, # Name of the secret
+    )
+
+    return response
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;~~&lt;/p&gt;
+&lt;p&gt;Second crate a method based on this method, backup_delete_secret.py
+~~ python
+from aws_service_utils import AwsSecretManager as SM&lt;/p&gt;
+&lt;p&gt;def operator(secret_name, json_content):
+print(&amp;ldquo;Create secret&amp;rdquo;)
+response = SM.create_secret(secret_name, json_content)
+if response:
+SM.delete_secret(secret_name)
+print(&amp;lsquo;Delete secret success&amp;rsquo;)
+else:
+print(&amp;lsquo;Create secret fail, no need to delete secret&amp;rsquo;)
+~~&lt;/p&gt;
+&lt;p&gt;Third create unittest cases based on those two methods
+~~ python
+from mock import patch, Mock
+import boto3
+import unittest
+import sys
+sys.path.append(&amp;quot;.&amp;quot;)
+from backup_delete_secret import operator
+import aws_service_utils&lt;/p&gt;
+&lt;p&gt;class TestBackupAndDelete(unittest.TestCase):&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@patch(&#39;aws_service_utils.AwsSecretManager.create_secret&#39;)
+@patch(&#39;aws_service_utils.AwsSecretManager.delete_secret&#39;)
+def test_operator_alway_work(self, mock_delete, mock_create):
+    operator(&amp;quot;test&amp;quot;, {
+        &amp;quot;name&amp;quot;:&amp;quot;wguan&amp;quot;
+    })
+    mock_create.return_value = {
+        &amp;quot;arn&amp;quot;:&amp;quot;1234&amp;quot;
+    }
+    self.assertEqual(mock_create.call_count, 1)
+    self.assertEqual(mock_delete.call_count, 1)
+
+def test_operator_related_order(self):
+    aws_service_utils.AwsSecretManager.create_secret = Mock(return_value={
+        &amp;quot;arn&amp;quot;: &amp;quot;1234&amp;quot;
+    })
+    aws_service_utils.AwsSecretManager.delete_secret = Mock()
+
+    operator(&amp;quot;test&amp;quot;, {
+        &amp;quot;name&amp;quot;:&amp;quot;wguan&amp;quot;
+    })
+
+    self.assertEqual(aws_service_utils.AwsSecretManager.create_secret.call_count, 1)
+    self.assertEqual(aws_service_utils.AwsSecretManager.delete_secret.call_count, 1)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;~~
+In the above we have defined two similar methods, one is use patch to define a mock, it will
+release the mock object after the unit test finish, but if we define a function to mock object as follow
+~~python
+aws_service_utils.AwsSecretManager.create_secret = Mock(return_value={
+&amp;ldquo;arn&amp;rdquo;: &amp;ldquo;1234&amp;rdquo;
+})
+aws_service_utils.AwsSecretManager.delete_secret = Mock()
+~~
+it won&amp;rsquo;t release this static method, you can verify use the following method to verify. If you write unit test
+with patch method, the following will seccuess, but otherwise the following method may fail. But it may also
+success, this is relate another question, how does nose2 load unittest cases. This can be verify by yourself.
+If you want to let the case work well, there is another metod to fix, reload the package.&lt;/p&gt;
+&lt;p&gt;~~ python
+import boto3
+import unittest
+import sys
+sys.path.append(&amp;quot;.&amp;quot;)
+from moto import mock_secretsmanager
+from aws_service_utils import AwsSecretManager as SM&lt;/p&gt;
+&lt;p&gt;class TestAwsSecretManager(unittest.TestCase):&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@mock_secretsmanager
+def test_creat_secret(self):
+    response = SM.create_secret(&amp;quot;test&amp;quot;, {
+        &amp;quot;name&amp;quot;: &amp;quot;wguan&amp;quot;
+    })
+    self.assertEqual(response[&#39;ResponseMetadata&#39;][&#39;HTTPStatusCode&#39;], 200)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;~~&lt;/p&gt;
+&lt;p&gt;Summary:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;For static method, never assign Mock object to static function, it will effect all the unit test after this case has been called&lt;/li&gt;
+&lt;li&gt;The order of nose2 load unit test cases is related the name of case name&lt;/li&gt;
+&lt;li&gt;Import AwsSecretManager in the last file, but it doesn&amp;rsquo;t import again, the root cause is python only import once, so there is anthor method to fix it, just use importlib.reload(package)&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
         <title>Metadata Class</title>
         <link>https://wguansky.github.io/blog/post/metadata_class/</link>
         <pubDate>Fri, 30 Dec 2022 04:37:23 +0800</pubDate>

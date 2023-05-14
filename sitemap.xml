@@ -3,13 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://wguansky.github.io/blog/categories/</loc>
-    <lastmod>2023-03-03T11:50:47+08:00</lastmod>
+    <lastmod>2023-05-14T10:11:13+08:00</lastmod>
   </url><url>
     <loc>https://wguansky.github.io/blog/post/</loc>
-    <lastmod>2023-03-03T11:50:47+08:00</lastmod>
+    <lastmod>2023-05-14T10:11:13+08:00</lastmod>
+  </url><url>
+    <loc>https://wguansky.github.io/blog/tags/python/</loc>
+    <lastmod>2023-05-14T10:11:13+08:00</lastmod>
+  </url><url>
+    <loc>https://wguansky.github.io/blog/categories/python/</loc>
+    <lastmod>2023-05-14T10:11:13+08:00</lastmod>
+  </url><url>
+    <loc>https://wguansky.github.io/blog/post/package_load/</loc>
+    <lastmod>2023-05-14T10:11:13+08:00</lastmod>
   </url><url>
     <loc>https://wguansky.github.io/blog/tags/</loc>
-    <lastmod>2023-03-03T11:50:47+08:00</lastmod>
+    <lastmod>2023-05-14T10:11:13+08:00</lastmod>
+  </url><url>
+    <loc>https://wguansky.github.io/blog/</loc>
+    <lastmod>2023-05-14T10:11:13+08:00</lastmod>
   </url><url>
     <loc>https://wguansky.github.io/blog/tags/terraform/</loc>
     <lastmod>2023-03-03T11:50:47+08:00</lastmod>
@@ -18,9 +30,6 @@
     <lastmod>2023-03-03T11:50:47+08:00</lastmod>
   </url><url>
     <loc>https://wguansky.github.io/blog/post/terraform/</loc>
-    <lastmod>2023-03-03T11:50:47+08:00</lastmod>
-  </url><url>
-    <loc>https://wguansky.github.io/blog/</loc>
     <lastmod>2023-03-03T11:50:47+08:00</lastmod>
   </url><url>
     <loc>https://wguansky.github.io/blog/tags/ansible/</loc>
@@ -81,12 +90,6 @@
     <lastmod>2023-01-06T17:56:14+08:00</lastmod>
   </url><url>
     <loc>https://wguansky.github.io/blog/post/metadata_class/</loc>
-    <lastmod>2022-12-30T04:37:23+08:00</lastmod>
-  </url><url>
-    <loc>https://wguansky.github.io/blog/tags/python/</loc>
-    <lastmod>2022-12-30T04:37:23+08:00</lastmod>
-  </url><url>
-    <loc>https://wguansky.github.io/blog/categories/python/</loc>
     <lastmod>2022-12-30T04:37:23+08:00</lastmod>
   </url><url>
     <loc>https://wguansky.github.io/blog/categories/front/</loc>
