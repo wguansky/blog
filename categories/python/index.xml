@@ -12,11 +12,12 @@
         <pubDate>Sun, 14 May 2023 10:11:13 +0800</pubDate>
         
         <guid>https://wguansky.github.io/blog/post/package_load/</guid>
-        <description>&lt;p&gt;During work on project pl-k8s-kubernetes[https://github.com/mstr-kiai/pl-k8s-infrastructure],
+        <description>&lt;p&gt;During work on project &lt;a class=&#34;link&#34; href=&#34;https://github.com/mstr-kiai/pl-k8s-infrastructure&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;pl-k8s-kubernetes&lt;/a&gt;,
 I encounter an issue with the unit test, which can&amp;rsquo;t pass, here is the example shows what&amp;rsquo;s  wrong
 with that.&lt;/p&gt;
 &lt;p&gt;First create a source code with static method and named this file as aws_service_utils.py
-~~ python
+~~python
 import boto3
 import json&lt;/p&gt;
 &lt;p&gt;class AwsSecretManager:&lt;/p&gt;
@@ -45,7 +46,7 @@ def delete_secret(secret_id):
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;~~&lt;/p&gt;
 &lt;p&gt;Second crate a method based on this method, backup_delete_secret.py
-~~ python
+~~python
 from aws_service_utils import AwsSecretManager as SM&lt;/p&gt;
 &lt;p&gt;def operator(secret_name, json_content):
 print(&amp;ldquo;Create secret&amp;rdquo;)
@@ -57,7 +58,7 @@ else:
 print(&amp;lsquo;Create secret fail, no need to delete secret&amp;rsquo;)
 ~~&lt;/p&gt;
 &lt;p&gt;Third create unittest cases based on those two methods
-~~ python
+~~python
 from mock import patch, Mock
 import boto3
 import unittest
@@ -104,7 +105,7 @@ it won&amp;rsquo;t release this static method, you can verify use the following 
 with patch method, the following will seccuess, but otherwise the following method may fail. But it may also
 success, this is relate another question, how does nose2 load unittest cases. This can be verify by yourself.
 If you want to let the case work well, there is another metod to fix, reload the package.&lt;/p&gt;
-&lt;p&gt;~~ python
+&lt;p&gt;~~python
 import boto3
 import unittest
 import sys

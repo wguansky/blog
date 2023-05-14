@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='During work on project pl-k8s-kubernetes[https://github.com/mstr-kiai/pl-k8s-infrastructure], I encounter an issue with the unit test, which can&amp;rsquo;t pass, here is the example shows what&amp;rsquo;s wrong with that.
-First create a source code with static method and named this file as aws_service_utils.py ~~ python import boto3 import json
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='During work on project pl-k8s-kubernetes, I encounter an issue with the unit test, which can&amp;rsquo;t pass, here is the example shows what&amp;rsquo;s wrong with that.
+First create a source code with static method and named this file as aws_service_utils.py ~~python import boto3 import json
 class AwsSecretManager:
 @staticmethod def create_secret(secret_name, json_content): secretsmanager_client = boto3.client(&#39;secretsmanager&#39;) # Create a secret response = secretsmanager_client.create_secret( Name=secret_name, # Name of the secret SecretString=json.dumps(json_content) # Secret data as a JSON string ) return response @staticmethod def delete_secret(secret_id): secretsmanager_client = boto3.'>
 <title>Python package load</title>
@@ -10,16 +10,16 @@ class AwsSecretManager:
 <link rel='canonical' href='https://wguansky.github.io/blog/post/package_load/'>
 
 <link rel="stylesheet" href="/blog/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Python package load'>
-<meta property='og:description' content='During work on project pl-k8s-kubernetes[https://github.com/mstr-kiai/pl-k8s-infrastructure], I encounter an issue with the unit test, which can&amp;rsquo;t pass, here is the example shows what&amp;rsquo;s wrong with that.
-First create a source code with static method and named this file as aws_service_utils.py ~~ python import boto3 import json
+<meta property='og:description' content='During work on project pl-k8s-kubernetes, I encounter an issue with the unit test, which can&amp;rsquo;t pass, here is the example shows what&amp;rsquo;s wrong with that.
+First create a source code with static method and named this file as aws_service_utils.py ~~python import boto3 import json
 class AwsSecretManager:
 @staticmethod def create_secret(secret_name, json_content): secretsmanager_client = boto3.client(&#39;secretsmanager&#39;) # Create a secret response = secretsmanager_client.create_secret( Name=secret_name, # Name of the secret SecretString=json.dumps(json_content) # Secret data as a JSON string ) return response @staticmethod def delete_secret(secret_id): secretsmanager_client = boto3.'>
 <meta property='og:url' content='https://wguansky.github.io/blog/post/package_load/'>
 <meta property='og:site_name' content='Wei Guan'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2023-05-14T10:11:13&#43;08:00'/><meta property='article:modified_time' content='2023-05-14T10:11:13&#43;08:00'/>
 <meta name="twitter:title" content="Python package load">
-<meta name="twitter:description" content="During work on project pl-k8s-kubernetes[https://github.com/mstr-kiai/pl-k8s-infrastructure], I encounter an issue with the unit test, which can&amp;rsquo;t pass, here is the example shows what&amp;rsquo;s wrong with that.
-First create a source code with static method and named this file as aws_service_utils.py ~~ python import boto3 import json
+<meta name="twitter:description" content="During work on project pl-k8s-kubernetes, I encounter an issue with the unit test, which can&amp;rsquo;t pass, here is the example shows what&amp;rsquo;s wrong with that.
+First create a source code with static method and named this file as aws_service_utils.py ~~python import boto3 import json
 class AwsSecretManager:
 @staticmethod def create_secret(secret_name, json_content): secretsmanager_client = boto3.client(&#39;secretsmanager&#39;) # Create a secret response = secretsmanager_client.create_secret( Name=secret_name, # Name of the secret SecretString=json.dumps(json_content) # Secret data as a JSON string ) return response @staticmethod def delete_secret(secret_id): secretsmanager_client = boto3.">
     </head>
@@ -261,11 +261,12 @@ class AwsSecretManager:
     <section class="article-content">
     
     
-    <p>During work on project pl-k8s-kubernetes[https://github.com/mstr-kiai/pl-k8s-infrastructure],
+    <p>During work on project <a class="link" href="https://github.com/mstr-kiai/pl-k8s-infrastructure"  target="_blank" rel="noopener"
+    >pl-k8s-kubernetes</a>,
 I encounter an issue with the unit test, which can&rsquo;t pass, here is the example shows what&rsquo;s  wrong
 with that.</p>
 <p>First create a source code with static method and named this file as aws_service_utils.py
-~~ python
+~~python
 import boto3
 import json</p>
 <p>class AwsSecretManager:</p>
@@ -294,7 +295,7 @@ def delete_secret(secret_id):
 </code></pre>
 <p>~~</p>
 <p>Second crate a method based on this method, backup_delete_secret.py
-~~ python
+~~python
 from aws_service_utils import AwsSecretManager as SM</p>
 <p>def operator(secret_name, json_content):
 print(&ldquo;Create secret&rdquo;)
@@ -306,7 +307,7 @@ else:
 print(&lsquo;Create secret fail, no need to delete secret&rsquo;)
 ~~</p>
 <p>Third create unittest cases based on those two methods
-~~ python
+~~python
 from mock import patch, Mock
 import boto3
 import unittest
@@ -353,7 +354,7 @@ it won&rsquo;t release this static method, you can verify use the following meth
 with patch method, the following will seccuess, but otherwise the following method may fail. But it may also
 success, this is relate another question, how does nose2 load unittest cases. This can be verify by yourself.
 If you want to let the case work well, there is another metod to fix, reload the package.</p>
-<p>~~ python
+<p>~~python
 import boto3
 import unittest
 import sys
