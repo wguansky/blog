@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Python on Wei Guan</title>
-        <link>https://wguansky.github.io/blog/tags/python/</link>
+        <link>https://hugo-3eo.pages.dev/tags/python/</link>
         <description>Recent content in Python on Wei Guan</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Sun, 14 May 2023 10:11:13 +0800</lastBuildDate><atom:link href="https://wguansky.github.io/blog/tags/python/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 14 May 2023 10:11:13 +0800</lastBuildDate><atom:link href="https://hugo-3eo.pages.dev/tags/python/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Python package load</title>
-        <link>https://wguansky.github.io/blog/post/package_load/</link>
+        <link>https://hugo-3eo.pages.dev/post/package_load/</link>
         <pubDate>Sun, 14 May 2023 10:11:13 +0800</pubDate>
         
-        <guid>https://wguansky.github.io/blog/post/package_load/</guid>
+        <guid>https://hugo-3eo.pages.dev/post/package_load/</guid>
         <description>&lt;p&gt;During work on project &lt;a class=&#34;link&#34; href=&#34;https://github.com/mstr-kiai/pl-k8s-infrastructure&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;pl-k8s-kubernetes&lt;/a&gt;,
 I encounter an issue with the unit test, which can&amp;rsquo;t pass, here is the example shows what&amp;rsquo;s  wrong
@@ -126,10 +126,10 @@ If you want to let the case work well, there is another metod to fix, reload the
         </item>
         <item>
         <title>Metadata Class</title>
-        <link>https://wguansky.github.io/blog/post/metadata_class/</link>
+        <link>https://hugo-3eo.pages.dev/post/metadata_class/</link>
         <pubDate>Fri, 30 Dec 2022 04:37:23 +0800</pubDate>
         
-        <guid>https://wguansky.github.io/blog/post/metadata_class/</guid>
+        <guid>https://hugo-3eo.pages.dev/post/metadata_class/</guid>
         <description>&lt;p&gt;Everything is object in python, so class is aslo object named
 &lt;a class=&#34;link&#34; href=&#34;https://www.datacamp.com/tutorial/python-metaclasses&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Metadata Calss&lt;/a&gt;.&lt;/p&gt;
@@ -211,10 +211,10 @@ __init__ and __new__, because super class will call them automatically.&lt;/p&gt
         </item>
         <item>
         <title>Python unit test</title>
-        <link>https://wguansky.github.io/blog/post/python_test/</link>
+        <link>https://hugo-3eo.pages.dev/post/python_test/</link>
         <pubDate>Thu, 29 Dec 2022 13:35:43 +0800</pubDate>
         
-        <guid>https://wguansky.github.io/blog/post/python_test/</guid>
+        <guid>https://hugo-3eo.pages.dev/post/python_test/</guid>
         <description>&lt;p&gt;Unit test is very import to improve the code robust. Each time,
 when we do some changes or code refactor, we need to verify our code can work
 well. And those errors can be exposed in develop process not in the test
