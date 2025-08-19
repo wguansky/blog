@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Go on Wei Guan</title>
-        <link>https://hugo-3eo.pages.dev/tags/go/</link>
+        <link>https://blog.wguan.dpdns.org/tags/go/</link>
         <description>Recent content in Go on Wei Guan</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Thu, 09 Feb 2023 17:05:19 +0800</lastBuildDate><atom:link href="https://hugo-3eo.pages.dev/tags/go/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 09 Feb 2023 17:05:19 +0800</lastBuildDate><atom:link href="https://blog.wguan.dpdns.org/tags/go/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Contact_str</title>
-        <link>https://hugo-3eo.pages.dev/post/contact_str/</link>
+        <link>https://blog.wguan.dpdns.org/post/contact_str/</link>
         <pubDate>Thu, 09 Feb 2023 17:05:19 +0800</pubDate>
         
-        <guid>https://hugo-3eo.pages.dev/post/contact_str/</guid>
+        <guid>https://blog.wguan.dpdns.org/post/contact_str/</guid>
         <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; (
@@ -41,10 +41,10 @@
         </item>
         <item>
         <title>Read_console</title>
-        <link>https://hugo-3eo.pages.dev/post/read_console/</link>
+        <link>https://blog.wguan.dpdns.org/post/read_console/</link>
         <pubDate>Thu, 09 Feb 2023 15:24:26 +0800</pubDate>
         
-        <guid>https://hugo-3eo.pages.dev/post/read_console/</guid>
+        <guid>https://blog.wguan.dpdns.org/post/read_console/</guid>
         <description>&lt;p&gt;Read information from console is very important, here is a simple
 way to read message from conosle&lt;/p&gt;
 &lt;h2 id=&#34;fmt-read&#34;&gt;fmt read&lt;/h2&gt;
@@ -82,10 +82,10 @@ way to read message from conosle&lt;/p&gt;
         </item>
         <item>
         <title>Go File Operator</title>
-        <link>https://hugo-3eo.pages.dev/post/go_read/</link>
+        <link>https://blog.wguan.dpdns.org/post/go_read/</link>
         <pubDate>Wed, 08 Feb 2023 23:25:31 +0800</pubDate>
         
-        <guid>https://hugo-3eo.pages.dev/post/go_read/</guid>
+        <guid>https://blog.wguan.dpdns.org/post/go_read/</guid>
         <description>&lt;h2 id=&#34;read-file&#34;&gt;Read File&lt;/h2&gt;
 &lt;p&gt;Read content from a file, string, or bytes are very important for any program language.
 In this article, we have showed the following package to read file:&lt;/p&gt;
@@ -415,10 +415,10 @@ time you also can use &lt;strong&gt;strings&lt;/strong&gt;, &lt;strong&gt;bytes&
         </item>
         <item>
         <title>Go_vs_rust</title>
-        <link>https://hugo-3eo.pages.dev/post/go_vs_rust/</link>
+        <link>https://blog.wguan.dpdns.org/post/go_vs_rust/</link>
         <pubDate>Wed, 01 Feb 2023 13:26:14 +0800</pubDate>
         
-        <guid>https://hugo-3eo.pages.dev/post/go_vs_rust/</guid>
+        <guid>https://blog.wguan.dpdns.org/post/go_vs_rust/</guid>
         <description>&lt;h1 id=&#34;define&#34;&gt;Define&lt;/h1&gt;
 &lt;h2 id=&#34;go&#34;&gt;Go&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;x&lt;/span&gt; []&lt;span style=&#34;color:#66d9ef&#34;&gt;float64&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// Slice
@@ -433,10 +433,10 @@ time you also can use &lt;strong&gt;strings&lt;/strong&gt;, &lt;strong&gt;bytes&
         </item>
         <item>
         <title>Go Test</title>
-        <link>https://hugo-3eo.pages.dev/post/go_test/</link>
+        <link>https://blog.wguan.dpdns.org/post/go_test/</link>
         <pubDate>Wed, 28 Dec 2022 22:26:58 +0800</pubDate>
         
-        <guid>https://hugo-3eo.pages.dev/post/go_test/</guid>
+        <guid>https://blog.wguan.dpdns.org/post/go_test/</guid>
         <description>&lt;p&gt;This article is about go unit test, in this article I will show some key and
 basic use for go.&lt;/p&gt;
 &lt;h2 id=&#34;basic&#34;&gt;Basic&lt;/h2&gt;

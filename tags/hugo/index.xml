@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Hugo on Wei Guan</title>
-        <link>https://hugo-3eo.pages.dev/tags/hugo/</link>
+        <link>https://blog.wguan.dpdns.org/tags/hugo/</link>
         <description>Recent content in Hugo on Wei Guan</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Thu, 29 Dec 2022 15:27:52 +0800</lastBuildDate><atom:link href="https://hugo-3eo.pages.dev/tags/hugo/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 29 Dec 2022 15:27:52 +0800</lastBuildDate><atom:link href="https://blog.wguan.dpdns.org/tags/hugo/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Publish hugo websit on github</title>
-        <link>https://hugo-3eo.pages.dev/post/publish_hugo_in_github/</link>
+        <link>https://blog.wguan.dpdns.org/post/publish_hugo_in_github/</link>
         <pubDate>Thu, 29 Dec 2022 15:27:52 +0800</pubDate>
         
-        <guid>https://hugo-3eo.pages.dev/post/publish_hugo_in_github/</guid>
+        <guid>https://blog.wguan.dpdns.org/post/publish_hugo_in_github/</guid>
         <description>&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Hugo&lt;/a&gt; is a static web develop tool. This website is just
 use hugo to develop, here is the method how to publish it in github.&lt;/p&gt;
@@ -20,7 +20,7 @@ use hugo to develop, here is the method how to publish it in github.&lt;/p&gt;
     &gt;Git&lt;/a&gt; to publish it.
 Go to &lt;strong&gt;Setting&lt;/strong&gt; -&amp;gt; &lt;strong&gt;Page&lt;/strong&gt; and then set the page you want to publish,
 and then save it.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://hugo-3eo.pages.dev/img/publish_page.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://blog.wguan.dpdns.org/img/publish_page.png&#34;
 	
 	
 	

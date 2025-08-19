@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Posts on Wei Guan</title>
-        <link>https://hugo-3eo.pages.dev/post/</link>
+        <link>https://blog.wguan.dpdns.org/post/</link>
         <description>Recent content in Posts on Wei Guan</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Sun, 14 May 2023 10:11:13 +0800</lastBuildDate><atom:link href="https://hugo-3eo.pages.dev/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 14 May 2023 10:11:13 +0800</lastBuildDate><atom:link href="https://blog.wguan.dpdns.org/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Python package load</title>
-        <link>https://hugo-3eo.pages.dev/post/package_load/</link>
+        <link>https://blog.wguan.dpdns.org/post/package_load/</link>
         <pubDate>Sun, 14 May 2023 10:11:13 +0800</pubDate>
         
-        <guid>https://hugo-3eo.pages.dev/post/package_load/</guid>
+        <guid>https://blog.wguan.dpdns.org/post/package_load/</guid>
         <description>&lt;p&gt;During work on project &lt;a class=&#34;link&#34; href=&#34;https://github.com/mstr-kiai/pl-k8s-infrastructure&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;pl-k8s-kubernetes&lt;/a&gt;,
 I encounter an issue with the unit test, which can&amp;rsquo;t pass, here is the example shows what&amp;rsquo;s  wrong
@@ -126,10 +126,10 @@ If you want to let the case work well, there is another metod to fix, reload the
         </item>
         <item>
         <title>Terraform</title>
-        <link>https://hugo-3eo.pages.dev/post/terraform/</link>
+        <link>https://blog.wguan.dpdns.org/post/terraform/</link>
         <pubDate>Fri, 03 Mar 2023 11:50:47 +0800</pubDate>
         
-        <guid>https://hugo-3eo.pages.dev/post/terraform/</guid>
+        <guid>https://blog.wguan.dpdns.org/post/terraform/</guid>
         <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
 &lt;p&gt;Terraform is a very useful tool which can help us to deploy resource on Cloud such as
 Aws, Azure, and Google, and it also support deploy k8s.&lt;/p&gt;
@@ -139,10 +139,10 @@ Aws, Azure, and Google, and it also support deploy k8s.&lt;/p&gt;
         </item>
         <item>
         <title>Ansible</title>
-        <link>https://hugo-3eo.pages.dev/post/ansible/</link>
+        <link>https://blog.wguan.dpdns.org/post/ansible/</link>
         <pubDate>Fri, 03 Mar 2023 10:41:06 +0800</pubDate>
         
-        <guid>https://hugo-3eo.pages.dev/post/ansible/</guid>
+        <guid>https://blog.wguan.dpdns.org/post/ansible/</guid>
         <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
 &lt;p&gt;Ansible is an automation tools, you can use it to run automation on remote machine
 but it does&amp;rsquo;t support run on Windows, it only supports run on Linux machine. There
@@ -161,10 +161,10 @@ python, it support python2.7 and python3, here is the document how to
         </item>
         <item>
         <title>Contact_str</title>
-        <link>https://hugo-3eo.pages.dev/post/contact_str/</link>
+        <link>https://blog.wguan.dpdns.org/post/contact_str/</link>
         <pubDate>Thu, 09 Feb 2023 17:05:19 +0800</pubDate>
         
-        <guid>https://hugo-3eo.pages.dev/post/contact_str/</guid>
+        <guid>https://blog.wguan.dpdns.org/post/contact_str/</guid>
         <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; (
@@ -194,10 +194,10 @@ python, it support python2.7 and python3, here is the document how to
         </item>
         <item>
         <title>Read_console</title>
-        <link>https://hugo-3eo.pages.dev/post/read_console/</link>
+        <link>https://blog.wguan.dpdns.org/post/read_console/</link>
         <pubDate>Thu, 09 Feb 2023 15:24:26 +0800</pubDate>
         
-        <guid>https://hugo-3eo.pages.dev/post/read_console/</guid>
+        <guid>https://blog.wguan.dpdns.org/post/read_console/</guid>
         <description>&lt;p&gt;Read information from console is very important, here is a simple
 way to read message from conosle&lt;/p&gt;
 &lt;h2 id=&#34;fmt-read&#34;&gt;fmt read&lt;/h2&gt;
@@ -235,10 +235,10 @@ way to read message from conosle&lt;/p&gt;
         </item>
         <item>
         <title>Go File Operator</title>
-        <link>https://hugo-3eo.pages.dev/post/go_read/</link>
+        <link>https://blog.wguan.dpdns.org/post/go_read/</link>
         <pubDate>Wed, 08 Feb 2023 23:25:31 +0800</pubDate>
         
-        <guid>https://hugo-3eo.pages.dev/post/go_read/</guid>
+        <guid>https://blog.wguan.dpdns.org/post/go_read/</guid>
         <description>&lt;h2 id=&#34;read-file&#34;&gt;Read File&lt;/h2&gt;
 &lt;p&gt;Read content from a file, string, or bytes are very important for any program language.
 In this article, we have showed the following package to read file:&lt;/p&gt;
@@ -568,12 +568,12 @@ time you also can use &lt;strong&gt;strings&lt;/strong&gt;, &lt;strong&gt;bytes&
         </item>
         <item>
         <title>Proxy</title>
-        <link>https://hugo-3eo.pages.dev/post/proxy/</link>
+        <link>https://blog.wguan.dpdns.org/post/proxy/</link>
         <pubDate>Tue, 07 Feb 2023 14:38:24 +0800</pubDate>
         
-        <guid>https://hugo-3eo.pages.dev/post/proxy/</guid>
+        <guid>https://blog.wguan.dpdns.org/post/proxy/</guid>
         <description>&lt;p&gt;Forward proxy:
-&lt;img src=&#34;https://hugo-3eo.pages.dev/img/forward_proxy_flow.png&#34;
+&lt;img src=&#34;https://blog.wguan.dpdns.org/img/forward_proxy_flow.png&#34;
 	
 	
 	
@@ -584,7 +584,7 @@ time you also can use &lt;strong&gt;strings&lt;/strong&gt;, &lt;strong&gt;bytes&
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Reverse proxy:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://hugo-3eo.pages.dev/img/reverse_proxy_flow.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://blog.wguan.dpdns.org/img/reverse_proxy_flow.png&#34;
 	
 	
 	
@@ -598,10 +598,10 @@ time you also can use &lt;strong&gt;strings&lt;/strong&gt;, &lt;strong&gt;bytes&
         </item>
         <item>
         <title>Go_vs_rust</title>
-        <link>https://hugo-3eo.pages.dev/post/go_vs_rust/</link>
+        <link>https://blog.wguan.dpdns.org/post/go_vs_rust/</link>
         <pubDate>Wed, 01 Feb 2023 13:26:14 +0800</pubDate>
         
-        <guid>https://hugo-3eo.pages.dev/post/go_vs_rust/</guid>
+        <guid>https://blog.wguan.dpdns.org/post/go_vs_rust/</guid>
         <description>&lt;h1 id=&#34;define&#34;&gt;Define&lt;/h1&gt;
 &lt;h2 id=&#34;go&#34;&gt;Go&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;x&lt;/span&gt; []&lt;span style=&#34;color:#66d9ef&#34;&gt;float64&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// Slice
@@ -616,10 +616,10 @@ time you also can use &lt;strong&gt;strings&lt;/strong&gt;, &lt;strong&gt;bytes&
         </item>
         <item>
         <title>PowerShell Command</title>
-        <link>https://hugo-3eo.pages.dev/post/create_large_file/</link>
+        <link>https://blog.wguan.dpdns.org/post/create_large_file/</link>
         <pubDate>Mon, 16 Jan 2023 13:43:44 +0800</pubDate>
         
-        <guid>https://hugo-3eo.pages.dev/post/create_large_file/</guid>
+        <guid>https://blog.wguan.dpdns.org/post/create_large_file/</guid>
         <description>&lt;h2 id=&#34;create-large-file&#34;&gt;Create Large File&lt;/h2&gt;
 &lt;p&gt;Here is the command how to create a large file:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; fsutil file createnew file_name file_size
@@ -631,10 +631,10 @@ time you also can use &lt;strong&gt;strings&lt;/strong&gt;, &lt;strong&gt;bytes&
         </item>
         <item>
         <title>First_rust</title>
-        <link>https://hugo-3eo.pages.dev/post/first_rust/</link>
+        <link>https://blog.wguan.dpdns.org/post/first_rust/</link>
         <pubDate>Wed, 11 Jan 2023 00:21:31 +0800</pubDate>
         
-        <guid>https://hugo-3eo.pages.dev/post/first_rust/</guid>
+        <guid>https://blog.wguan.dpdns.org/post/first_rust/</guid>
         <description>&lt;p&gt;This is my first time write a rust programm by myslef:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Rust&#34; data-lang=&#34;Rust&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;use&lt;/span&gt; rand::Rng;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;use&lt;/span&gt; std::cmp::Ordering;
@@ -680,10 +680,10 @@ time you also can use &lt;strong&gt;strings&lt;/strong&gt;, &lt;strong&gt;bytes&
         </item>
         <item>
         <title>Rust Analyzer</title>
-        <link>https://hugo-3eo.pages.dev/post/rust_analyzer/</link>
+        <link>https://blog.wguan.dpdns.org/post/rust_analyzer/</link>
         <pubDate>Fri, 06 Jan 2023 17:56:14 +0800</pubDate>
         
-        <guid>https://hugo-3eo.pages.dev/post/rust_analyzer/</guid>
+        <guid>https://blog.wguan.dpdns.org/post/rust_analyzer/</guid>
         <description>&lt;h1 id=&#34;install-rust-analyzer&#34;&gt;Install rust analyzer&lt;/h1&gt;
 &lt;p&gt;In order to configure rust analyzer in vimspace, you must first install the
 analyzer in the console and then configure in the spacevim. Based on
@@ -698,10 +698,10 @@ then it can work very well.&lt;/p&gt;
         </item>
         <item>
         <title>Metadata Class</title>
-        <link>https://hugo-3eo.pages.dev/post/metadata_class/</link>
+        <link>https://blog.wguan.dpdns.org/post/metadata_class/</link>
         <pubDate>Fri, 30 Dec 2022 04:37:23 +0800</pubDate>
         
-        <guid>https://hugo-3eo.pages.dev/post/metadata_class/</guid>
+        <guid>https://blog.wguan.dpdns.org/post/metadata_class/</guid>
         <description>&lt;p&gt;Everything is object in python, so class is aslo object named
 &lt;a class=&#34;link&#34; href=&#34;https://www.datacamp.com/tutorial/python-metaclasses&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Metadata Calss&lt;/a&gt;.&lt;/p&gt;
@@ -783,10 +783,10 @@ __init__ and __new__, because super class will call them automatically.&lt;/p&gt
         </item>
         <item>
         <title>Publish hugo websit on github</title>
-        <link>https://hugo-3eo.pages.dev/post/publish_hugo_in_github/</link>
+        <link>https://blog.wguan.dpdns.org/post/publish_hugo_in_github/</link>
         <pubDate>Thu, 29 Dec 2022 15:27:52 +0800</pubDate>
         
-        <guid>https://hugo-3eo.pages.dev/post/publish_hugo_in_github/</guid>
+        <guid>https://blog.wguan.dpdns.org/post/publish_hugo_in_github/</guid>
         <description>&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Hugo&lt;/a&gt; is a static web develop tool. This website is just
 use hugo to develop, here is the method how to publish it in github.&lt;/p&gt;
@@ -795,7 +795,7 @@ use hugo to develop, here is the method how to publish it in github.&lt;/p&gt;
     &gt;Git&lt;/a&gt; to publish it.
 Go to &lt;strong&gt;Setting&lt;/strong&gt; -&amp;gt; &lt;strong&gt;Page&lt;/strong&gt; and then set the page you want to publish,
 and then save it.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://hugo-3eo.pages.dev/img/publish_page.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://blog.wguan.dpdns.org/img/publish_page.png&#34;
 	
 	
 	
@@ -858,10 +858,10 @@ then you can visit the hugo website.&lt;/p&gt;
         </item>
         <item>
         <title>Python unit test</title>
-        <link>https://hugo-3eo.pages.dev/post/python_test/</link>
+        <link>https://blog.wguan.dpdns.org/post/python_test/</link>
         <pubDate>Thu, 29 Dec 2022 13:35:43 +0800</pubDate>
         
-        <guid>https://hugo-3eo.pages.dev/post/python_test/</guid>
+        <guid>https://blog.wguan.dpdns.org/post/python_test/</guid>
         <description>&lt;p&gt;Unit test is very import to improve the code robust. Each time,
 when we do some changes or code refactor, we need to verify our code can work
 well. And those errors can be exposed in develop process not in the test
@@ -894,10 +894,10 @@ is call in that file, not the function define in that file.&lt;/li&gt;
         </item>
         <item>
         <title>Gotask</title>
-        <link>https://hugo-3eo.pages.dev/post/gotask/</link>
+        <link>https://blog.wguan.dpdns.org/post/gotask/</link>
         <pubDate>Wed, 28 Dec 2022 23:32:38 +0800</pubDate>
         
-        <guid>https://hugo-3eo.pages.dev/post/gotask/</guid>
+        <guid>https://blog.wguan.dpdns.org/post/gotask/</guid>
         <description>&lt;p&gt;In our daily work, we may want to do some tasks, such as build or compile. There is a very useful tool &lt;a class=&#34;link&#34; href=&#34;https://taskfile.dev/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;task&lt;/a&gt; which can help us
 to define our work in a yaml file, then it can help us to run those commands. For remote, you can refer &lt;strong&gt;Ansible&lt;/strong&gt;, which is a very useful tool for
@@ -1011,10 +1011,10 @@ with &lt;strong&gt;task&lt;/strong&gt; or &lt;strong&gt;make&lt;/strong&gt;.&lt;
         </item>
         <item>
         <title>Go Test</title>
-        <link>https://hugo-3eo.pages.dev/post/go_test/</link>
+        <link>https://blog.wguan.dpdns.org/post/go_test/</link>
         <pubDate>Wed, 28 Dec 2022 22:26:58 +0800</pubDate>
         
-        <guid>https://hugo-3eo.pages.dev/post/go_test/</guid>
+        <guid>https://blog.wguan.dpdns.org/post/go_test/</guid>
         <description>&lt;p&gt;This article is about go unit test, in this article I will show some key and
 basic use for go.&lt;/p&gt;
 &lt;h2 id=&#34;basic&#34;&gt;Basic&lt;/h2&gt;
@@ -1105,10 +1105,10 @@ output and compare the result, here is the example code.&lt;/p&gt;
         </item>
         <item>
         <title>DBdigram</title>
-        <link>https://hugo-3eo.pages.dev/post/dbdigram/</link>
+        <link>https://blog.wguan.dpdns.org/post/dbdigram/</link>
         <pubDate>Wed, 28 Dec 2022 19:03:42 +0800</pubDate>
         
-        <guid>https://hugo-3eo.pages.dev/post/dbdigram/</guid>
+        <guid>https://blog.wguan.dpdns.org/post/dbdigram/</guid>
         <description>&lt;p&gt;This is a very useful tool, you can use it to help generate MySQL and Postgresql
 database schema just through this tool,
 for more information you can refer &lt;a class=&#34;link&#34; href=&#34;https://dbdiagram.io/home&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -1117,10 +1117,10 @@ for more information you can refer &lt;a class=&#34;link&#34; href=&#34;https://
         </item>
         <item>
         <title>DBmigration</title>
-        <link>https://hugo-3eo.pages.dev/post/dbmigration/</link>
+        <link>https://blog.wguan.dpdns.org/post/dbmigration/</link>
         <pubDate>Wed, 28 Dec 2022 18:38:02 +0800</pubDate>
         
-        <guid>https://hugo-3eo.pages.dev/post/dbmigration/</guid>
+        <guid>https://blog.wguan.dpdns.org/post/dbmigration/</guid>
         <description>&lt;h1 id=&#34;database-schema-migration&#34;&gt;Database Schema Migration&lt;/h1&gt;
 &lt;p&gt;In our daliy work, we will control the database version, but how to upgrade
 database schema or download database schma is very hard for our daliy work,
@@ -1132,10 +1132,10 @@ Provision Api to migrate database.&lt;/p&gt;
         </item>
         <item>
         <title>How to set proxy for terminal</title>
-        <link>https://hugo-3eo.pages.dev/post/terminal_proxy/</link>
+        <link>https://blog.wguan.dpdns.org/post/terminal_proxy/</link>
         <pubDate>Thu, 08 Dec 2022 03:26:03 +0800</pubDate>
         
-        <guid>https://hugo-3eo.pages.dev/post/terminal_proxy/</guid>
+        <guid>https://blog.wguan.dpdns.org/post/terminal_proxy/</guid>
         <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;Sometimes we can&amp;rsquo;t connect forigen website without proxy, we can set chrome with
 omega proxy, but for local we can&amp;rsquo;t use it. This document will introduce how to

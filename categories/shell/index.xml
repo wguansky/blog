@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Shell on Wei Guan</title>
-        <link>https://hugo-3eo.pages.dev/categories/shell/</link>
+        <link>https://blog.wguan.dpdns.org/categories/shell/</link>
         <description>Recent content in Shell on Wei Guan</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Wed, 28 Dec 2022 23:32:38 +0800</lastBuildDate><atom:link href="https://hugo-3eo.pages.dev/categories/shell/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 28 Dec 2022 23:32:38 +0800</lastBuildDate><atom:link href="https://blog.wguan.dpdns.org/categories/shell/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Gotask</title>
-        <link>https://hugo-3eo.pages.dev/post/gotask/</link>
+        <link>https://blog.wguan.dpdns.org/post/gotask/</link>
         <pubDate>Wed, 28 Dec 2022 23:32:38 +0800</pubDate>
         
-        <guid>https://hugo-3eo.pages.dev/post/gotask/</guid>
+        <guid>https://blog.wguan.dpdns.org/post/gotask/</guid>
         <description>&lt;p&gt;In our daily work, we may want to do some tasks, such as build or compile. There is a very useful tool &lt;a class=&#34;link&#34; href=&#34;https://taskfile.dev/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;task&lt;/a&gt; which can help us
 to define our work in a yaml file, then it can help us to run those commands. For remote, you can refer &lt;strong&gt;Ansible&lt;/strong&gt;, which is a very useful tool for
@@ -125,10 +125,10 @@ with &lt;strong&gt;task&lt;/strong&gt; or &lt;strong&gt;make&lt;/strong&gt;.&lt;
         </item>
         <item>
         <title>How to set proxy for terminal</title>
-        <link>https://hugo-3eo.pages.dev/post/terminal_proxy/</link>
+        <link>https://blog.wguan.dpdns.org/post/terminal_proxy/</link>
         <pubDate>Thu, 08 Dec 2022 03:26:03 +0800</pubDate>
         
-        <guid>https://hugo-3eo.pages.dev/post/terminal_proxy/</guid>
+        <guid>https://blog.wguan.dpdns.org/post/terminal_proxy/</guid>
         <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;Sometimes we can&amp;rsquo;t connect forigen website without proxy, we can set chrome with
 omega proxy, but for local we can&amp;rsquo;t use it. This document will introduce how to

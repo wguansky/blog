@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>sql on Wei Guan</title>
-        <link>https://hugo-3eo.pages.dev/tags/sql/</link>
+        <link>https://blog.wguan.dpdns.org/tags/sql/</link>
         <description>Recent content in sql on Wei Guan</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Wed, 28 Dec 2022 19:03:42 +0800</lastBuildDate><atom:link href="https://hugo-3eo.pages.dev/tags/sql/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 28 Dec 2022 19:03:42 +0800</lastBuildDate><atom:link href="https://blog.wguan.dpdns.org/tags/sql/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>DBdigram</title>
-        <link>https://hugo-3eo.pages.dev/post/dbdigram/</link>
+        <link>https://blog.wguan.dpdns.org/post/dbdigram/</link>
         <pubDate>Wed, 28 Dec 2022 19:03:42 +0800</pubDate>
         
-        <guid>https://hugo-3eo.pages.dev/post/dbdigram/</guid>
+        <guid>https://blog.wguan.dpdns.org/post/dbdigram/</guid>
         <description>&lt;p&gt;This is a very useful tool, you can use it to help generate MySQL and Postgresql
 database schema just through this tool,
 for more information you can refer &lt;a class=&#34;link&#34; href=&#34;https://dbdiagram.io/home&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -20,10 +20,10 @@ for more information you can refer &lt;a class=&#34;link&#34; href=&#34;https://
         </item>
         <item>
         <title>DBmigration</title>
-        <link>https://hugo-3eo.pages.dev/post/dbmigration/</link>
+        <link>https://blog.wguan.dpdns.org/post/dbmigration/</link>
         <pubDate>Wed, 28 Dec 2022 18:38:02 +0800</pubDate>
         
-        <guid>https://hugo-3eo.pages.dev/post/dbmigration/</guid>
+        <guid>https://blog.wguan.dpdns.org/post/dbmigration/</guid>
         <description>&lt;h1 id=&#34;database-schema-migration&#34;&gt;Database Schema Migration&lt;/h1&gt;
 &lt;p&gt;In our daliy work, we will control the database version, but how to upgrade
 database schema or download database schma is very hard for our daliy work,

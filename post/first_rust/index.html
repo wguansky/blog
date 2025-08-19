@@ -5,12 +5,12 @@
 use rand::Rng; use std::cmp::Ordering; use std::io; fn main() { println!(&amp;#34;Generate a secret number!&amp;#34;); let secret_number = rand::thread_rng().gen_range(1..100); loop { println!(&amp;#34;Please input a number!&amp;#34;); let mut input = String::new(); match io::stdin().read_line(&amp;amp;mut input) { Ok(_) =&amp;gt; {}, Err(_) =&amp;gt; { println!(&amp;#34;Type error, please type again!&amp;#34;); continue; }, } let num: u32 = match input.trim().parse() { Ok(num) =&amp;gt; num, Err(_) =&amp;gt; { println!'>
 <title>First_rust</title>
 
-<link rel='canonical' href='https://hugo-3eo.pages.dev/post/first_rust/'>
+<link rel='canonical' href='https://blog.wguan.dpdns.org/post/first_rust/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='First_rust'>
 <meta property='og:description' content='This is my first time write a rust programm by myslef:
 use rand::Rng; use std::cmp::Ordering; use std::io; fn main() { println!(&amp;#34;Generate a secret number!&amp;#34;); let secret_number = rand::thread_rng().gen_range(1..100); loop { println!(&amp;#34;Please input a number!&amp;#34;); let mut input = String::new(); match io::stdin().read_line(&amp;amp;mut input) { Ok(_) =&amp;gt; {}, Err(_) =&amp;gt; { println!(&amp;#34;Type error, please type again!&amp;#34;); continue; }, } let num: u32 = match input.trim().parse() { Ok(num) =&amp;gt; num, Err(_) =&amp;gt; { println!'>
-<meta property='og:url' content='https://hugo-3eo.pages.dev/post/first_rust/'>
+<meta property='og:url' content='https://blog.wguan.dpdns.org/post/first_rust/'>
 <meta property='og:site_name' content='Wei Guan'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Rust' /><meta property='article:published_time' content='2023-01-11T00:21:31&#43;08:00'/><meta property='article:modified_time' content='2023-01-11T00:21:31&#43;08:00'/>
 <meta name="twitter:title" content="First_rust">
